@@ -6,6 +6,9 @@ Github trending PWA
 
 https://trendzz.netlify.app
 
+## Thanks
+
+to: [Hu Chen](https://github.com/huchenme) for providing the [Github Trending API](https://github.com/huchenme/github-trending-api)
 
 Color palette:
 

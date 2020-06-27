@@ -1,0 +1,13 @@
+@value theme: "../theme.css";
+@value primary, secondary from theme;
+
+.header {
+  background-color: primary;
+  padding: 20px 0;
+  height: 30px;
+  width: 100%;
+}
+
+.header img {
+  width: 50px;
+}

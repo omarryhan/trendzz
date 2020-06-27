@@ -4,6 +4,7 @@ import Head from 'next/head';
 import App, { AppInitialProps } from 'next/app';
 import Router from 'next/router';
 import ReactGA from 'react-ga';
+import '../components/global-styles.css';
 
 import { GA_TRACKING_ID, GA_CONFIGS } from '../services/ga';
 
@@ -85,15 +86,15 @@ class MyApp extends App<AppInitialProps & CustomAppInitialProps> {
           <meta name="keywords" content="Github, Github Trending, Github Trending PWA" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-          <link rel="shortcut icon" href="/logo_circular/32w/logo.png" />
+          <link rel="shortcut icon" href="/logo_circular/32w/logo_circular.png" />
           <meta name="theme-color" content="#f6f8fa" />
-          <link rel="icon" type="image/png" sizes="192x192" href="/logo_circular/192w/logo.png" />
-          <link rel="icon" type="image/png" sizes="265x265" href="/logo_circular/256w/logo.png" />
-          <link rel="icon" type="image/png" sizes="512x512" href="/logo_circular/512w/logo.png" />
+          <link rel="icon" type="image/png" sizes="192x192" href="/logo_circular/192w/logo_circular.png" />
+          <link rel="icon" type="image/png" sizes="265x265" href="/logo_circular/256w/logo_circular.png" />
+          <link rel="icon" type="image/png" sizes="512x512" href="/logo_circular/512w/logo_circular.png" />
           <link rel="manifest" href="/manifest.json" />
 
           {/* Apple stuff.. yuk */}
-          <link rel="apple-touch-icon" sizes="180x180" href="/logo_circular/180w/logo.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/logo_circular/180w/logo_circular.png" />
           <meta name="apple-mobile-web-app-status-bar-style" content="#f6f8fa" />
           <meta name="apple-mobile-webapp-title" content="Trendzz" />
           <meta name="apple-touch-fullscreen" content="yes" />
