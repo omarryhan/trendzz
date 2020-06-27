@@ -1,0 +1,73 @@
+{
+  "name": "trendzz",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": false,
+  "browserslist": [
+    "> 0.25%, not dead",
+    "not op_mini all",
+    "not ie > 0"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "dev:static": "npm run build && npm run export && npm run start:static",
+    "build": "next build",
+    "export": "next export",
+    "build:analyze": "ANALYZE=true next build",
+    "start": "next start",
+    "start:static": "http-server ./out",
+    "prod": "npm run start",
+    "lint": "echo \" \n\nlinting all JS and TS files.\n\n\" && npm run lint:ts; echo \"\n\nLinting CSS.\n\n\" && npm run lint:css",
+    "lint:fix": "echo \" \n\nlinting all JS and TS files.\n\n\" && npm run lint:ts:fix ; echo \"\n\nLinting CSS.\n\n\" && npm run lint:css",
+    "lint:ts": "eslint ./**/*.{js,jsx,tsx,ts,css}",
+    "lint:ts:fix": "eslint ./**/*.{js,jsx,tsx,ts,css} --fix",
+    "lint:css": "stylelint ./**/*.{js,jsx,tsx,ts}",
+    "tsc": "tsc .",
+    "test": "jest",
+    "test:init": "jest --init",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.14",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.55",
+    "@next/bundle-analyzer": "^9.3.5",
+    "@reduxjs/toolkit": "^1.3.4",
+    "@zeit/next-source-maps": "^0.0.4-canary.1",
+    "next": "^9.4.3",
+    "next-pwa": "^2.4.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-ga": "^2.7.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.4.0",
+    "@types/node": "^13.13.12",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "http-server": "^0.12.3",
+    "husky": "^4.2.5",
+    "react-test-renderer": "^16.13.1",
+    "stylelint": "^13.5.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-no-unsupported-browser-features": "^4.0.0",
+    "typescript": "^3.9.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run build && npm run export # && npm run lint:fix"
+    }
+  }
+}

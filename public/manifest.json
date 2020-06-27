@@ -1,0 +1,27 @@
+{
+    "name": "Trendzz",
+    "short_name": "Trendzz",
+    "scope": "/",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f6f8fa",
+    "theme_color": "#f6f8fa",
+    "description": "Trending Github Repos",
+    "icons": [
+        {
+          "src": "/logo_circular/192w/logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/logo_circular/256w/logo.png",
+          "sizes": "256x256",
+          "type": "image/png"
+        },
+        {
+          "src": "/logo_circular/512w/logo.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+}
