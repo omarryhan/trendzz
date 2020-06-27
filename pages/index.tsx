@@ -9,9 +9,7 @@ const Page: NextPage<{}> = () => (
       <meta name="title" content="Trendzz | Home" />
       <title>Trendzz | Home</title>
     </Head>
-    <div>
-      <Header />
-    </div>
+    <Header />
   </>
 );
 
