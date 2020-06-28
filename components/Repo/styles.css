@@ -32,7 +32,7 @@ input[type="reset"] {
 }
 
 .avatarWrapper {
-  width: 20px;
+  width: 17.5px;
 }
 
 .avatar {
@@ -44,7 +44,7 @@ input[type="reset"] {
   margin: 0 0 0 5px;
   font-weight: normal;
   font-size: 14px;
-  color: rgb(80, 80, 80);
+  color: rgb(100, 100, 100);
 }
 
 .repoName {
