@@ -6,7 +6,7 @@
   </p>
 </p>
 
-# Simple Github Trending
+# Trendzz
 
 Github trending PWA
 
@@ -26,5 +26,5 @@ Firefox doesn't seem to have this issue. Chrome and Chromium based browsers do. 
 
 ## Thanks
 
-to: [Hu Chen](https://github.com/huchenme) for providing the [API for this project](https://github.com/huchenme/github-trending-api)
+To: [Hu Chen](https://github.com/huchenme) for providing the [API](https://github.com/huchenme/github-trending-api) for this project.
 
