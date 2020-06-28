@@ -28,7 +28,12 @@ const Component: React.FC<Props> = ({
     >
       {
         Object.keys(options).map((optionKey) => (
-          <option value={options[optionKey].url}>{options[optionKey].name}</option>
+          <option
+            key={options[optionKey].url}
+            value={options[optionKey].url}
+          >
+            {options[optionKey].name}
+          </option>
         ))
       }
     </select>
