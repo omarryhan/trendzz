@@ -1,3 +1,11 @@
+<p align="center">
+  <img src="https://github.com/omarryhan/trendzz/raw/master/public/logo_circular/512w/logo_circular.png" alt="Logo" title="Trendzz" height="250" width="250"/>
+  <p align="center">
+    <a href="https://app.netlify.com/sites/trendzz/deploys"><img alt="Build status" src="https://api.netlify.com/api/v1/badges/e36c5fe0-37d4-4190-903a-df004d01cef2/deploy-status"></a>
+    <a href="https://github.com/omarryhan/trendzz"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
+  </p>
+</p>
+
 # Simple Github Trending
 
 Github trending PWA
@@ -13,10 +21,10 @@ If you're having trouble seeing the bottom select row, you can either:
 - Add the app to your homescreen and open it again, this will correctly show the full height (`100vh`).
 - Try to drag up by pulling the visible part of the select row.
 
-I think browsers should always show `100vh` regardless whether the user started scrolling down or not.
-Firefox doesn't seem to have this issue. Chrome and Chromium based browsers do :/
+I think browsers should always show `100vh` regardless whether the user has started scrolling down or not.
+Firefox doesn't seem to have this issue. Chrome and Chromium based browsers do. Yay Firefox.
 
 ## Thanks
 
-to: [Hu Chen](https://github.com/huchenme) for providing the [Github Trending API](https://github.com/huchenme/github-trending-api)
+to: [Hu Chen](https://github.com/huchenme) for providing the [API for this project](https://github.com/huchenme/github-trending-api)
 
