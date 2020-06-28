@@ -45,14 +45,14 @@ export const languages: Options = {
     url: 'css',
     name: 'CSS',
   },
-  csv: {
-    url: 'csv',
-    name: 'CSV',
-  },
-  cython: {
-    url: 'cython',
-    name: 'Cython',
-  },
+  // csv: {
+  //   url: 'csv',
+  //   name: 'CSV',
+  // },
+  // cython: {
+  //   url: 'cython',
+  //   name: 'Cython',
+  // },
   dart: {
     url: 'dart',
     name: 'Dart',
@@ -65,22 +65,22 @@ export const languages: Options = {
     url: 'elixir',
     name: 'Elixir',
   },
-  elm: {
-    url: 'elm',
-    name: 'Elm',
-  },
-  erlang: {
-    url: 'erlang',
-    name: 'Erlang',
-  },
+  // elm: {
+  //   url: 'elm',
+  //   name: 'Elm',
+  // },
+  // erlang: {
+  //   url: 'erlang',
+  //   name: 'Erlang',
+  // },
   go: {
     url: 'go',
     name: 'Go',
   },
-  graphql: {
-    url: 'graphql',
-    name: 'GraphQL',
-  },
+  // graphql: {
+  //   url: 'graphql',
+  //   name: 'GraphQL',
+  // },
   haskell: {
     url: 'haskell',
     name: 'Haskell',
@@ -89,14 +89,14 @@ export const languages: Options = {
     url: 'html',
     name: 'HTML',
   },
-  htmlAndDjango: {
-    url: 'html%2Bdjango',
-    name: 'HTML + Django',
-  },
-  htmlAndPHP: {
-    url: 'html%2Bphp',
-    name: 'HTML + PHP',
-  },
+  // htmlAndDjango: {
+  //   url: 'html%2Bdjango',
+  //   name: 'HTML + Django',
+  // },
+  // htmlAndPHP: {
+  //   url: 'html%2Bphp',
+  //   name: 'HTML + PHP',
+  // },
   java: {
     url: 'java',
     name: 'Java',
@@ -105,10 +105,10 @@ export const languages: Options = {
     url: 'javascript',
     name: 'Javascript',
   },
-  json: {
-    url: 'json',
-    name: 'JSON',
-  },
+  // json: {
+  //   url: 'json',
+  //   name: 'JSON',
+  // },
   julia: {
     url: 'julia',
     name: 'Julia',
@@ -129,18 +129,18 @@ export const languages: Options = {
     url: 'markdown',
     name: 'Markdown',
   },
-  matlab: {
-    url: 'matlab',
-    name: 'Matlab',
-  },
-  nginx: {
-    url: 'nginx',
-    name: 'Nginx',
-  },
-  numpy: {
-    url: 'numpy',
-    name: 'Numpy',
-  },
+  // matlab: {
+  //   url: 'matlab',
+  //   name: 'Matlab',
+  // },
+  // nginx: {
+  //   url: 'nginx',
+  //   name: 'Nginx',
+  // },
+  // numpy: {
+  //   url: 'numpy',
+  //   name: 'Numpy',
+  // },
   objectiveC: {
     url: 'objective-c',
     name: 'Objective C',
@@ -161,10 +161,10 @@ export const languages: Options = {
     url: 'powershell',
     name: 'Powershell',
   },
-  prolog: {
-    url: 'prolog',
-    name: 'Prolog',
-  },
+  // prolog: {
+  //   url: 'prolog',
+  //   name: 'Prolog',
+  // },
   python: {
     url: 'python',
     name: 'Python',
@@ -201,10 +201,10 @@ export const languages: Options = {
     url: 'webassembly',
     name: 'WebAssembly',
   },
-  xml: {
-    url: 'xml',
-    name: 'XML',
-  },
+  // xml: {
+  //   url: 'xml',
+  //   name: 'XML',
+  // },
 };
 
 export const times: Options = {
