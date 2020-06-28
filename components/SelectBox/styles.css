@@ -1,0 +1,20 @@
+.selectBoxWrapper {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selector {
+  width: 90%;
+  height: 70%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 0 5px;
+}
+
+.selector:active {
+  border: none;
+  outline: none;
+}

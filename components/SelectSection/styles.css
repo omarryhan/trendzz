@@ -1,0 +1,17 @@
+@value theme: "../theme.css";
+@value side-margin, header-height, bottom-nav-height, bg-gray-dark, view-max-width from theme;
+
+.sectionWrapper {
+  padding: 10px side-margin;
+  background-color: bg-gray-dark;
+  height: bottom-nav-height;
+  display: flex;
+}
+
+.selectBoxes {
+  display: flex;
+  width: 100%;
+  max-width: view-max-width;
+  height: 100%;
+  margin: 0 auto;
+}

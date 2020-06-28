@@ -11,7 +11,20 @@ export const createQueryURL = (language: string | undefined, since: string | und
   return baseUrl;
 };
 
-export const languages = {
+interface Option {
+  url: string;
+  name: string;
+}
+
+export interface Options {
+  [key: string]: Option;
+}
+
+export const languages: Options = {
+  all: {
+    url: '',
+    name: 'All',
+  },
   c: {
     url: 'c',
     name: 'C',
@@ -194,7 +207,7 @@ export const languages = {
   },
 };
 
-export const times = {
+export const times: Options = {
   daily: {
     name: 'Today',
     url: 'daily',

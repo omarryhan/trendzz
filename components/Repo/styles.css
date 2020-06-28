@@ -1,0 +1,84 @@
+@value theme: "../theme.css";
+@value side-margin, header-height, bottom-nav-height, bg-gray-light bg-gray, border-color, bg-yellow, view-max-width from theme;
+
+.repoWrapper {
+  padding: 15px side-margin;
+  border-bottom: 1px solid border-color;
+  background-color: bg-gray-light;
+  width: 100%;
+  text-align: left;
+  max-width: view-max-width;
+  margin: 0 auto;
+}
+
+.repoButton,
+input[type="submit"],
+input[type="reset"] {
+  height: 100%;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+}
+
+.avatarWrapper {
+  width: 20px;
+}
+
+.avatar {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.authorName {
+  margin: 0 0 0 5px;
+  font-weight: normal;
+  font-size: 14px;
+  color: rgb(80, 80, 80);
+}
+
+.repoName {
+  margin: 5px 0 15px 0;
+  font-size: 22px;
+  text-align: left;
+  color: rgb(70, 70, 70);
+}
+
+.repoDescription {
+  margin: 5px 0 25px 0;
+  font-size: 20px;
+  text-align: left;
+  color: rgb(10, 10, 10);
+  overflow-wrap: break-word;
+}
+
+.repoPropertiesRow {
+  display: flex;
+  align-items: center;
+}
+
+.repoProperty {
+  font-size: 12px;
+  margin: 0 15px 0 0;
+  color: rgb(40, 40, 40);
+}
+
+.starWrapper {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.starWrapper svg {
+  width: 100%;
+  fill: bg-yellow;
+}

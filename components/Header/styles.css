@@ -1,20 +1,71 @@
 @value theme: "../theme.css";
-@value primary, secondary from theme;
+@value bg-gray-dark, bg-gray-light, side-margin, header-height from theme;
 
 .header {
   display: flex;
-  align-items: flex-end;
-  background-color: primary;
-  padding: 6px 10px;
-  height: 50px;
+  justify-content: space-between;
+  background-color: bg-gray-dark;
+  padding: 8px side-margin;
+  height: header-height;
   width: 100%;
 }
 
+.logoAndTitleWrapper {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.logoWrapper {
+  height: 100%;
+}
+
+.logoWrapper svg {
+  height: 100%;
+}
+
+/*
+.logoWrapper svg path {
+  fill: bg-gray-light !important;
+  height: 100%;
+}
+
+.logoWrapper svg ellipse {
+  fill: bg-gray-light !important;
+  height: 100%;
+}
+*/
+
 .title {
-  margin: 0 0 0 10px;
-  font-size: 20px;
+  margin: 0 0 0 7.5px;
+  font-size: 24px;
+  font-weight: 500;
+  color: bg-gray-light;
 }
 
 .header img {
   height: 100%;
+}
+
+.infoWrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.infoWrapper svg {
+  height: 75%;
+  fill: rgb(230, 230, 230);
+}
+
+.infoButton {
+  display: block;
+  cursor: pointer;
+  height: 100%;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 0;
+  font: inherit;
+  outline: inherit;
 }
