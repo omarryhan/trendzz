@@ -19,6 +19,7 @@ const Component: React.FC<Props> = ({
     {/* eslint-disable-next-line jsx-a11y/no-onchange */}
     <select
       className={styles.selector}
+      value={value}
       name={selecting}
       id={selecting}
       onChange={(e: React.FormEvent<HTMLSelectElement>): void => {

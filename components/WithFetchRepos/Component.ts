@@ -57,9 +57,8 @@ const setTimeAndLanguageLocalStorate = (time: string, language: string): void =>
 };
 
 const Component: React.FC<Props> = ({ children }) => {
-  const { time: initialTime, language: initialLanguage } = getTimeAndLanguageLocalStorage();
-  const [time, setTime] = React.useState(initialTime);
-  const [language, setLanguage] = React.useState<string | undefined>(initialLanguage);
+  const [time, setTime] = React.useState(defaults.time);
+  const [language, setLanguage] = React.useState<string | undefined>(defaults.language);
   const [repos, setRepos] = React.useState<Repo[]>([]);
   const [isFetchingRepos, setIsFetchingRepos] = React.useState(false);
 
@@ -78,8 +77,12 @@ const Component: React.FC<Props> = ({ children }) => {
   };
 
   React.useEffect(() => {
+    const { time: initialTime, language: initialLanguage } = getTimeAndLanguageLocalStorage();
+    setTime(initialTime);
+    setLanguage(initialLanguage);
+
     const effect = async (): Promise<void> => {
-      setRepos(await fetchRepos(times.daily.url, undefined, setIsFetchingRepos));
+      setRepos(await fetchRepos(initialTime, initialLanguage || undefined, setIsFetchingRepos));
     };
 
     effect();
