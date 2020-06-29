@@ -59,7 +59,6 @@ input[type="reset"] {
 
 .repoPropertiesRow {
   display: flex;
-  align-items: center;
   justify-content: flex-start;
 }
 
@@ -78,19 +77,27 @@ input[type="reset"] {
 }
 
 .repoProperty {
-  font-size: 14px;
+  font-size: 12px;
   margin: 0 0;
-  color: rgb(100, 100, 100);
+  color: rgb(120, 120, 120);
 }
 
-.starWrapper {
-  width: 20px;
+.propertIconWrapper {
+  width: 15px;
+  height: 15px;
   margin-right: 5px;
   display: flex;
   align-items: flex-end;
 }
 
-.starWrapper svg {
+.propertIconWrapper svg {
   width: 100%;
   fill: bg-yellow;
+}
+
+.propertIconWrapper span {
+  border-radius: 50%;
+  width: 85%;
+  height: 85%;
+  margin-bottom: 0.5px;
 }

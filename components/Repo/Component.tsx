@@ -34,7 +34,7 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
 
       <div className={styles.repoPropertiesRow}>
         <div className={styles.repoPropertyColumn} style={{ width: '80px' }}>
-          <div className={styles.starWrapper}>
+          <div className={styles.propertIconWrapper}>
             <Star />
           </div>
           <p className={styles.repoProperty}>
@@ -43,15 +43,13 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
         </div>
 
         <div className={styles.repoPropertyColumn}>
-          <span style={{
-            // stylelint-disable-next-line value-keyword-case
-            backgroundColor: repo.languageColor, // inline because of this dynamic property
-            borderRadius: '50%',
-            width: '15px',
-            height: '15px',
-            marginRight: '5px',
-          }}
-          />
+          <div className={styles.propertIconWrapper}>
+            <span style={{
+              // stylelint-disable-next-line value-keyword-case
+              backgroundColor: repo.languageColor, // inline because of this dynamic property
+            }}
+            />
+          </div>
           <p className={styles.repoProperty}>
             {repo.language}
           </p>
