@@ -16,8 +16,8 @@ const Component: React.FC<Props> = ({
   setLanguage,
   setTime,
 }) => (
-  <div className={styles.sectionWrapper}>
-    <div className={styles.selectBoxes}>
+  <footer className={styles.sectionWrapper}>
+    <nav className={styles.selectBoxes}>
       <SelectBox
         options={times}
         value={time}
@@ -30,8 +30,8 @@ const Component: React.FC<Props> = ({
         setValue={setLanguage}
         selecting="Language"
       />
-    </div>
-  </div>
+    </nav>
+  </footer>
 );
 
 export default Component;
