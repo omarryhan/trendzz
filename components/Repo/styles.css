@@ -52,7 +52,7 @@ input[type="reset"] {
   margin: 20px 0 40px 0;
   font-size: 18px;
   text-align: left;
-  color: rgb(10, 10, 10);
+  color: rgb(30, 30, 30);
   overflow-wrap: break-word;
   line-height: 1.5;
 }
@@ -99,5 +99,5 @@ input[type="reset"] {
   border-radius: 50%;
   width: 85%;
   height: 85%;
-  margin-bottom: 0.5px;
+  margin-bottom: 1.5px;
 }
