@@ -10,21 +10,13 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
     <button
       onClick={
         function redirect(): void {
-          window.location.href = repo.url;
+          window.open(repo.url, '_blank');
         }
       }
       type="button"
+      title={`${repo.url}`}
       className={styles.repoButton}
     >
-      <div className={styles.authorRow}>
-        <div className={styles.avatarWrapper}>
-          <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
-        </div>
-        <h3 className={styles.authorName}>
-          {repo.author}
-        </h3>
-      </div>
-
       <div className={styles.repoNameRow}>
         <h2 className={styles.repoName}>
           {repo.name}
@@ -38,6 +30,12 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
       </div>
 
       <div className={styles.repoPropertiesRow}>
+        <div className={styles.avatarWrapper}>
+          <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
+        </div>
+        <h3 className={styles.authorName}>
+          {repo.author}
+        </h3>
         <div className={styles.starWrapper}>
           <Star />
         </div>

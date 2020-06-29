@@ -20,8 +20,9 @@ const Component: React.FC<{}> = () => (
       <button
         className={styles.infoButton}
         type="button"
+        title="Opens Trendzz's repo"
         onClick={(): void => {
-          window.location.href = 'https://github.com/omarryhan/trendzz';
+          window.open('https://github.com/omarryhan/trendzz', '_blank');
         }}
       >
         <div style={{ display: 'flex', height: '100%', alignItems: 'center' }}>

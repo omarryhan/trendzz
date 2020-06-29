@@ -30,19 +30,48 @@ interface Props {
   }>;
 }
 
+const defaults: { time: string; language: string} = {
+  time: times.daily.url,
+  language: '',
+};
+
+const getTimeAndLanguageLocalStorage = (): { time: string; language: string } => {
+  if (typeof window !== 'undefined') {
+    return {
+      time: window.localStorage.getItem('time') || defaults.time,
+      language: window.localStorage.getItem('language') || defaults.language,
+    };
+  } else {
+    return {
+      time: defaults.time,
+      language: defaults.language,
+    };
+  }
+};
+
+const setTimeAndLanguageLocalStorate = (time: string, language: string): void => {
+  if (typeof window !== 'undefined') {
+    window.localStorage.setItem('time', time);
+    window.localStorage.setItem('language', language);
+  }
+};
+
 const Component: React.FC<Props> = ({ children }) => {
-  const [time, setTime] = React.useState(times.daily.url);
-  const [language, setLanguage] = React.useState<string | undefined>('');
+  const { time: initialTime, language: initialLanguage } = getTimeAndLanguageLocalStorage();
+  const [time, setTime] = React.useState(initialTime);
+  const [language, setLanguage] = React.useState<string | undefined>(initialLanguage);
   const [repos, setRepos] = React.useState<Repo[]>([]);
   const [isFetchingRepos, setIsFetchingRepos] = React.useState(false);
 
   const setTimeAndFetchRepos = async (newTime: string): Promise<void> => {
+    setTimeAndLanguageLocalStorate(newTime, language || '');
     setTime(newTime);
     const results = await fetchRepos(newTime, language || undefined, setIsFetchingRepos);
     setRepos(results);
   };
 
   const setLanguageAndFetchRepos = async (newLanguage: string): Promise<void> => {
+    setTimeAndLanguageLocalStorate(time, newLanguage);
     setLanguage(newLanguage);
     const results = await fetchRepos(time, newLanguage || undefined, setIsFetchingRepos);
     setRepos(results);
