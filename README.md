@@ -8,7 +8,7 @@
 
 # Trendzz
 
-Github trending PWA
+Github trending PWA focusing on usability and ease of use.
 
 ## Live website
 

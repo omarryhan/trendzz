@@ -12,7 +12,7 @@
 @value bg-green-light: #dcffe4;
 @value bg-purple: #6f42c1;
 @value bg-purple-light: #f5f0ff;
-@value border-color: rgb(220, 220, 220);
+@value border-color: rgb(200, 200, 200);
 
 /* Dimensions */
 @value side-margin: 15px;
