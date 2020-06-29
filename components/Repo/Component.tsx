@@ -18,8 +18,11 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
       className={styles.repoButton}
     >
       <div className={styles.repoNameRow}>
+        <div className={styles.avatarWrapper}>
+          <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
+        </div>
         <h2 className={styles.repoName}>
-          {repo.name}
+          {`${repo.author}/${repo.name}`}
         </h2>
       </div>
 
@@ -39,15 +42,6 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
           </p>
         </div>
 
-        <div className={styles.repoPropertyColumn} style={{ justifyContent: 'center' }}>
-          <div className={styles.avatarWrapper}>
-            <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
-          </div>
-          <h3 className={styles.authorName}>
-            {repo.author}
-          </h3>
-        </div>
-
         <div className={styles.repoPropertyColumn} style={{ justifyContent: 'flex-end' }}>
           <span style={{
             // stylelint-disable-next-line value-keyword-case
@@ -55,6 +49,7 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
             borderRadius: '50%',
             width: '15px',
             height: '15px',
+            marginRight: '5px',
           }}
           />
           <p className={styles.repoProperty}>

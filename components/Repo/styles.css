@@ -31,10 +31,16 @@ input[type="reset"] {
   align-items: center;
 }
 
+.repoNameRow {
+  display: flex;
+  margin: 5px 0 20px 0;
+}
+
 .avatarWrapper {
   display: flex;
   align-items: center;
-  width: 20px;
+  width: 24px;
+  margin-right: 7.5px;
 }
 
 .avatar {
@@ -42,15 +48,8 @@ input[type="reset"] {
   border-radius: 50%;
 }
 
-.repoName {
-  margin: 5px 0 15px 0;
-  font-size: 22px;
-  text-align: left;
-  color: rgb(70, 70, 70);
-}
-
 .repoDescription {
-  margin: 20px 0 50px 0;
+  margin: 20px 0 40px 0;
   font-size: 18px;
   text-align: left;
   color: rgb(10, 10, 10);
@@ -61,7 +60,7 @@ input[type="reset"] {
 .repoPropertiesRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .repoPropertyColumn {
@@ -69,22 +68,22 @@ input[type="reset"] {
   align-items: center;
 }
 
-.authorName {
-  margin: 0 0 0 5px;
-  font-weight: normal;
-  font-size: 14px;
-  color: rgb(100, 100, 100);
+.repoName {
+  margin: 0 0 0 0;
+  font-size: 22px;
   text-align: left;
+  color: rgb(80, 80, 80);
 }
 
 .repoProperty {
   font-size: 12px;
-  margin: 0 0 0 5px;
+  margin: 0 0;
   color: rgb(100, 100, 100);
 }
 
 .starWrapper {
   width: 20px;
+  margin-right: 5px;
   display: flex;
   align-items: center;
 }
