@@ -65,12 +65,12 @@ input[type="reset"] {
 
 .repoPropertyColumn {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .repoName {
   margin: 0 0 0 0;
-  font-size: 22px;
+  font-size: 20px;
   text-align: left;
   color: rgb(80, 80, 80);
   overflow-wrap: break-word;
@@ -78,16 +78,16 @@ input[type="reset"] {
 }
 
 .repoProperty {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 0;
   color: rgb(100, 100, 100);
 }
 
 .starWrapper {
-  width: 15px;
+  width: 20px;
   margin-right: 5px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .starWrapper svg {

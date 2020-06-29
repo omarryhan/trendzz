@@ -47,8 +47,8 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
             // stylelint-disable-next-line value-keyword-case
             backgroundColor: repo.languageColor, // inline because of this dynamic property
             borderRadius: '50%',
-            width: '12.5px',
-            height: '12.5px',
+            width: '15px',
+            height: '15px',
             marginRight: '5px',
           }}
           />
