@@ -78,14 +78,14 @@ input[type="reset"] {
 
 .repoProperty {
   font-size: 12px;
-  margin: 0 0;
+  margin: 0 3px 0 0;
   color: rgb(99, 99, 99);
 }
 
 .propertIconWrapper {
   width: 15px;
   height: 15px;
-  margin-right: 5px;
+  margin-right: 3px;
   display: flex;
   align-items: flex-end;
 }
