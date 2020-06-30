@@ -33,7 +33,7 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
       </div>
 
       <div className={styles.repoPropertiesRow}>
-        <div className={styles.repoPropertyColumn} style={{ width: '80px' }}>
+        <div className={styles.repoPropertyColumn} style={{ width: '60px' }}>
           <div className={styles.propertIconWrapper}>
             <Star />
           </div>
