@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": false,
   "browserslist": [
-    "> 0.25%, not dead",
+    "defaults",
     "not op_mini all",
     "not ie > 0"
   ],
