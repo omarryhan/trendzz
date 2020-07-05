@@ -1,13 +1,10 @@
-@value theme: "../theme.css";
-@value side-margin, header-height, bottom-nav-height, bg-gray-light bg-gray, border-color, bg-yellow, view-max-width from theme;
-
 .repoWrapper {
-  padding: 15px side-margin;
-  border-bottom: 1px solid border-color;
-  background-color: bg-gray-light;
+  padding: 15px var(--side-margin);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-gray-light);
   width: 100%;
   text-align: left;
-  max-width: view-max-width;
+  max-width: var(--view-max-width);
   margin: 0 auto;
 }
 
@@ -92,7 +89,7 @@ input[type="reset"] {
 
 .propertIconWrapper svg {
   width: 100%;
-  fill: bg-yellow;
+  fill: var(--bg-yellow);
 }
 
 .propertIconWrapper span {

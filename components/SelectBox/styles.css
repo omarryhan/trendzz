@@ -1,6 +1,3 @@
-@value theme: "../theme.css";
-@value bg-gray-light from theme;
-
 .selectBoxWrapper {
   width: 50%;
   display: flex;
@@ -15,7 +12,7 @@
   border: none;
   outline: none;
   padding: 0 5px;
-  background-color: bg-gray-light;
+  background-color: var(--bg-gray-light);
 }
 
 .selector:active {

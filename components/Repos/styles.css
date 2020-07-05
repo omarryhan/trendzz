@@ -1,12 +1,9 @@
-@value theme: "../theme.css";
-@value side-margin, header-height, bottom-nav-height from theme;
-
 .reposWrapper {
   /* stylelint-disable-next-line */
-  height: calc(100vh - header-height - bottom-nav-height);
+  height: calc(100vh - var(--header-height) - var(--bottom-nav-height));
   overflow-y: scroll;
 }
 
 .loadingIndicatorWrapper {
-  padding-left: side-margin;
+  padding-left: var(--side-margin);
 }

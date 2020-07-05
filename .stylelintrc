@@ -10,11 +10,6 @@
   "rules": {
     "plugin/no-unsupported-browser-features": [true, {
       "severity": "warning"
-    }],
-    "at-rule-no-unknown": [ true, {
-      "ignoreAtRules": [
-        "value",
-      ]
-    }],
+    }]
   }
 }

@@ -1,12 +1,9 @@
-@value theme: "../theme.css";
-@value bg-gray-dark, bg-gray-light, side-margin, header-height from theme;
-
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: bg-gray-dark;
-  padding: 8px side-margin;
-  height: header-height;
+  background-color: var(--bg-gray-dark);
+  padding: 8px var(--side-margin);
+  height: var(--header-height);
   width: 100%;
 }
 
@@ -40,7 +37,7 @@
   margin: 0 0 0 7.5px;
   font-size: 24px;
   font-weight: 500;
-  color: bg-gray-light;
+  color: var(--bg-gray-light);
 }
 
 .header img {

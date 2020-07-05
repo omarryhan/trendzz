@@ -22,3 +22,27 @@ body {
   padding: 0;
   min-height: 100vh;
 }
+
+:root {
+  /* Colors */
+  --bg-gray: #f6f8fa;
+  --bg-gray-dark: #24292e;
+  --bg-gray-light: #fafbfc;
+  --bg-blue: #0366d6;
+  --bg-blue-light: #f1f8ff;
+  --bg-yellow: #ffd33d;
+  --bg-yellow-light: #fff5b1;
+  --bg-red: #d73a49;
+  --bg-red-light: #ffdce0;
+  --bg-green: #28a745;
+  --bg-green-light: #dcffe4;
+  --bg-purple: #6f42c1;
+  --bg-purple-light: #f5f0ff;
+  --border-color: rgb(200, 200, 200);
+
+  /* Dimensions */
+  --side-margin: 15px;
+  --header-height: 50px;
+  --bottom-nav-height: 75px;
+  --view-max-width: 650px;
+}
