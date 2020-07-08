@@ -55,7 +55,7 @@ const Component: React.FC<Props> = ({ children }) => {
     };
 
     effect();
-  }, []);
+  }, [feedLanguages]);
 
   return children({
     repos,
