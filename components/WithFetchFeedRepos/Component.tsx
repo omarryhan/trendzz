@@ -55,6 +55,7 @@ const Component: React.FC<Props> = ({ children }) => {
     };
 
     effect();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return children({
