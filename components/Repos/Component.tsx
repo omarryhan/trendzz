@@ -6,16 +6,19 @@ import Repo from '../Repo';
 interface Props {
   repos: RepoInterface[];
   isFetchingRepos: boolean;
+  isBigHeight?: boolean;
 }
 
-const Component: React.FC<Props> = ({ repos, isFetchingRepos }) => (
-  <div className={styles.reposWrapper}>
+const Component: React.FC<Props> = ({ repos, isFetchingRepos, isBigHeight = false }) => (
+  <div className={`${styles.reposWrapper} ${isBigHeight ? styles.reposWrapper_bigHeight : styles.reposWrapper_smallHeight}`}>
     {
       !isFetchingRepos
         ? (
           repos.length
-            ? repos.map((repo) => (
-              <Repo repo={repo} key={repo.url} />
+            ? repos.map((repo, i) => (
+              // some repos can show up twice
+              // eslint-disable-next-line react/no-array-index-key
+              <Repo repo={repo} key={`${repo.url}-${i}`} />
             ))
             : (
               <p className={styles.loadingIndicatorWrapper}>

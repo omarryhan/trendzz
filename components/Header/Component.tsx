@@ -1,32 +1,37 @@
 import React from 'react';
+import Router from 'next/router';
 import styles from './styles.css';
 import Logo from '../../public/logo_circular/SVG/logo_circular.svg';
-import Info from '../../public/info.svg';
+import Settings from '../../public/settings.svg';
 
 const Component: React.FC<{}> = () => (
   <header className={styles.header}>
     <div className={styles.logoAndTitleWrapper}>
-      <div className={styles.logoWrapper}>
+      <button
+        className={styles.logoWrapper}
+        onClick={(): Promise<boolean> => Router.push('/')}
+        type="button"
+      >
         <Logo />
-      </div>
+      </button>
       <h1 className={styles.title}>
         Trendzz
       </h1>
     </div>
 
     <div
-      className={styles.infoWrapper}
+      className={styles.settingsWrapper}
     >
       <button
-        className={styles.infoButton}
+        className={styles.settingsButton}
         type="button"
-        title="Opens Trendzz's repo"
+        title="Settings"
         onClick={(): void => {
-          window.open('https://github.com/omarryhan/trendzz', '_blank');
+          Router.push('/settings');
         }}
       >
         <div style={{ display: 'flex', height: '100%', alignItems: 'center' }}>
-          <Info />
+          <Settings />
         </div>
       </button>
     </div>

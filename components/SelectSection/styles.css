@@ -3,6 +3,7 @@
   background-color: var(--bg-gray-dark);
   height: var(--bottom-nav-height);
   display: flex;
+  border-bottom: solid rgb(60, 60, 60) 0.75px;
 }
 
 .selectBoxes {

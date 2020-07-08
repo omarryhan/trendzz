@@ -1,0 +1,56 @@
+.sectionWrapper {
+  padding: 10px var(--side-margin);
+  background-color: var(--bg-gray-dark);
+  height: var(--bottom-nav-height);
+  display: flex;
+}
+
+.selectPage {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: var(--view-max-width);
+  margin: 0 auto;
+}
+
+.selectPageButton {
+  display: block;
+  cursor: pointer;
+  height: 100%;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 0;
+  font: inherit;
+  outline: inherit;
+
+  /* custom */
+  width: 50%;
+  text-align: center;
+}
+
+.selectPageButton svg {
+  height: calc(var(--bottom-nav-height) - 40px);
+}
+
+.selectPageButton_active svg {
+  fill: var(--bg-gray-light);
+}
+
+.selectPageButton_inactive svg {
+  fill: var(--bg-gray-medium);
+}
+
+.navDescription {
+  margin: 0 0;
+  font-size: 12px;
+}
+
+.navDescription_active {
+  color: var(--bg-gray-light);
+}
+
+.navDescription_inactive {
+  color: var(--bg-gray-medium);
+}

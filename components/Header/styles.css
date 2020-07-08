@@ -14,7 +14,15 @@
 }
 
 .logoWrapper {
+  display: block;
   height: 100%;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 0;
+  font: inherit;
+  outline: inherit;
 }
 
 .logoWrapper svg {
@@ -44,18 +52,18 @@
   height: 100%;
 }
 
-.infoWrapper {
+.settingsWrapper {
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.infoWrapper svg {
+.settingsWrapper svg {
   height: 75%;
   fill: rgb(230, 230, 230);
 }
 
-.infoButton {
+.settingsButton {
   display: block;
   cursor: pointer;
   height: 100%;

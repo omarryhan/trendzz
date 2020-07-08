@@ -1,7 +1,13 @@
 .reposWrapper {
-  /* stylelint-disable-next-line */
-  height: calc(100vh - var(--header-height) - var(--bottom-nav-height));
   overflow-y: scroll;
+}
+
+.reposWrapper_bigHeight {
+  height: calc(100vh - var(--header-height) - var(--bottom-nav-height));
+}
+
+.reposWrapper_smallHeight {
+  height: calc(100vh - var(--header-height) - var(--bottom-nav-height) - var(--bottom-nav-height));
 }
 
 .loadingIndicatorWrapper {

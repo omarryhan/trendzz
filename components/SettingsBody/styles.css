@@ -1,0 +1,5 @@
+.settingsWrapper {
+  height: calc(100vh - var(--header-height) - var(--bottom-nav-height));
+  overflow-y: scroll;
+  width: 100%;
+}
