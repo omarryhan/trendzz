@@ -68,12 +68,22 @@ input[type="reset"] {
 }
 
 .repoName {
+  display: inline;
   margin: 0 0 0 0;
   font-size: 20px;
   text-align: left;
   color: var(--bg-blue);
   overflow-wrap: break-word;
-  width: calc(100% - calc(24px + 7.5px));
+}
+
+.authorName {
+  display: inline;
+  margin: 0 0 0 0;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  color: var(--bg-blue);
+  overflow-wrap: break-word;
 }
 
 .repoProperty {
@@ -103,6 +113,7 @@ input[type="reset"] {
 }
 
 .noStyleAnchor {
+  text-align: left;
   text-decoration: inherit;
-  width: 100%;
+  width: calc(100% - calc(24px + 7.5px));
 }

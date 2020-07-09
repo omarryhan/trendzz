@@ -22,8 +22,11 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
           <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
         </div>
         <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer" onClick={(e): void => e.preventDefault()}>
+          <h2 className={styles.authorName}>
+            {`${repo.author}/`}
+          </h2>
           <h2 className={styles.repoName}>
-            {`${repo.author}/${repo.name}`}
+            {repo.name}
           </h2>
         </a>
       </div>

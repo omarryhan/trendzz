@@ -3,3 +3,18 @@
   overflow-y: scroll;
   width: 100%;
 }
+
+.sectionWrapper {
+  max-width: var(--view-max-width);
+  margin: 0 auto;
+  padding: 10px var(--side-margin);
+  background-color: var(--bg-gray-light);
+  border-radius: var(--normal-border-radius);
+  margin-bottom: 10px;
+}
+
+.settingsTitle {
+  margin: 0 0 10px 0;
+  font-size: 32px;
+  color: rgb(30, 30, 30);
+}
