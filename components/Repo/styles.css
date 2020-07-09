@@ -33,7 +33,7 @@ input[type="reset"] {
 
 .repoNameRow {
   display: flex;
-  margin: 5px 0 20px 0;
+  margin: 0 0 20px 0;
 }
 
 .avatarWrapper {
