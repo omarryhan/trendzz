@@ -7,21 +7,24 @@ const Component: React.FC<{}> = () => (
       Contact
     </h2>
     <p className={styles.settingsDescription}>
-      If you want to report a bug, submit a feature request or say a simple thank you
+      Report a bug, submit a feature request or talk about this project
     </p>
 
     <p className={styles.settingsText}>
-      Either head to:
+      Either head to this repo&apos;s
       {' '}
       <a href="https://github.com/omarryhan/trendzz/issues">
-        github.com/omarryhan/trendzz/issues
+        issue tracker
       </a>
-      <br />
-      Or send me a tweet (or a DM)
+      {' '}
+      or
+      {' '}
+      send me a tweet (or a DM)
       {' '}
       <a href="https://twitter.com/omarryhan">
         @omarryhan
       </a>
+      .
     </p>
   </section>
 );

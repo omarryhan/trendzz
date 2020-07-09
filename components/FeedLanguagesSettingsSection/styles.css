@@ -14,7 +14,7 @@
 }
 
 .settingsDescription {
-  margin: 0 0 25px 0;
+  margin: 0 0 20px 0;
   font-size: 18px;
   color: rgb(80, 80, 80);
 }
@@ -22,6 +22,15 @@
 .labelText {
   font-size: 18px;
   color: rgb(20, 20, 20);
+}
+
+.labelText p {
+  display: inline-block;
+  margin: 0 0;
+}
+
+.labelText input {
+  margin-right: 10px;
 }
 
 .labelInputDiv {

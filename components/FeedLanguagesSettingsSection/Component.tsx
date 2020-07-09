@@ -52,13 +52,12 @@ const Component: React.FC<{}> = () => {
         Feed languages
       </h2>
       <p className={styles.settingsDescription}>
-        Select up to 6 languages you want to show up on your daily feed
+        Select the languages you want to show up on your daily feed
       </p>
       <form>
         {Object.keys(languages).map((languageKey) => (
           <div key={languageKey} className={styles.labelInputDiv}>
             <label htmlFor={languageKey} className={styles.labelText}>
-              {languages[languageKey].name}
               <input
                 name={languageKey}
                 type="checkbox"
@@ -69,6 +68,9 @@ const Component: React.FC<{}> = () => {
                   )
                 }
               />
+              <p>
+                {languages[languageKey].name}
+              </p>
             </label>
             <br />
           </div>

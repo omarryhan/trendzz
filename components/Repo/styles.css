@@ -102,7 +102,7 @@ input[type="reset"] {
 
 .propertIconWrapper svg {
   width: 100%;
-  fill: var(--bg-yellow);
+  fill: var(--bg-gray-medium);
 }
 
 .propertIconWrapper span {

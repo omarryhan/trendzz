@@ -1,7 +1,7 @@
 import React from 'react';
 import { Repo } from '../types';
 import styles from './styles.css';
-import Star from '../../public/star.svg';
+import Star from '../../public/star_github.svg';
 
 const Component: React.FC<{repo: Repo}> = ({ repo }) => (
   <div
@@ -40,7 +40,7 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
       </div>
 
       <div className={styles.repoPropertiesRow}>
-        <div className={styles.repoPropertyColumn} style={{ minWidth: '60px' }}>
+        <div className={styles.repoPropertyColumn} style={{ minWidth: '65px' }}>
           <div className={styles.propertIconWrapper}>
             <Star />
           </div>
