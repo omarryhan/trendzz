@@ -21,15 +21,19 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
         <div className={styles.avatarWrapper}>
           <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
         </div>
-        <h2 className={styles.repoName}>
-          {`${repo.author}/${repo.name}`}
-        </h2>
+        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer">
+          <h2 className={styles.repoName}>
+            {`${repo.author}/${repo.name}`}
+          </h2>
+        </a>
       </div>
 
       <div className={styles.repoDescriptionRow}>
-        <p className={styles.repoDescription}>
-          {repo.description}
-        </p>
+        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer">
+          <p className={styles.repoDescription}>
+            {repo.description}
+          </p>
+        </a>
       </div>
 
       <div className={styles.repoPropertiesRow}>

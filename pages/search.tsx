@@ -13,7 +13,7 @@ const Page: NextPage<{}> = () => (
       <meta name="title" content="Trendzz | Search" />
       <title>Trendzz | Search</title>
     </Head>
-    <Header />
+    <Header hideSettings />
     <WithFetchRepos>
       {({
         time,

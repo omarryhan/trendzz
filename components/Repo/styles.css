@@ -1,11 +1,14 @@
 .repoWrapper {
   padding: 15px var(--side-margin);
-  border-bottom: 1px solid var(--border-color);
+
+  /* border-bottom: 1px solid var(--border-color); */
   background-color: var(--bg-gray-light);
   width: 100%;
   text-align: left;
   max-width: var(--view-max-width);
   margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: var(--normal-border-radius);
 }
 
 .repoButton,
@@ -97,4 +100,10 @@ input[type="reset"] {
   width: 85%;
   height: 85%;
   margin-bottom: 1px;
+}
+
+.noStyleAnchor {
+  text-decoration: inherit;
+  color: inherit;
+  width: 100%;
 }

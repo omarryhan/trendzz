@@ -19,7 +19,19 @@ const fetchRepos = async (
     setIsFetching(false);
   }
 
-  return allResults.flat();
+  const retVal: Repo[] = [];
+
+  for (let i = 0; i < 100; i += 1) {
+    allResults.forEach((results) => {
+      const repo = results[i];
+      if (repo) {
+        retVal.push(repo);
+      }
+    });
+  }
+
+  // return allResults.flat();
+  return retVal;
 };
 
 interface Props {

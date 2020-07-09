@@ -15,7 +15,8 @@ html {
 }
 
 body {
-  background-color: #f6f8fa;
+  /* f6f8fa */
+  background-color: #ced4da;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -25,7 +26,7 @@ body {
 
 :root {
   /* Colors */
-  --bg-gray: #f6f8fa;
+  --bg-gray: #ced4da;
   --bg-gray-medium: rgb(150, 150, 150);
   --bg-gray-dark: #24292e;
   --bg-gray-light: #fafbfc;
@@ -45,5 +46,7 @@ body {
   --side-margin: 15px;
   --header-height: 50px;
   --bottom-nav-height: 75px;
+  --bottom-nav-main-menu-height: 62.5px;
   --view-max-width: 650px;
+  --normal-border-radius: 5px;
 }

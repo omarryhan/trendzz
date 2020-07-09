@@ -1,7 +1,7 @@
 .sectionWrapper {
   padding: 10px var(--side-margin);
   background-color: var(--bg-gray-dark);
-  height: var(--bottom-nav-height);
+  height: var(--bottom-nav-main-menu-height);
   display: flex;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .selectPageButton svg {
-  height: calc(var(--bottom-nav-height) - 40px);
+  height: calc(var(--bottom-nav-height) - 50px);
 }
 
 .selectPageButton_active svg {

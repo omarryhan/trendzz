@@ -19,11 +19,9 @@
   color: rgb(80, 80, 80);
 }
 
-.labelText {
+.settingsText {
+  margin: 0 0 25px 0;
   font-size: 18px;
   color: rgb(20, 20, 20);
-}
 
-.labelInputDiv {
-  margin-bottom: 10px;
 }

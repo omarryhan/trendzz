@@ -4,7 +4,7 @@ import styles from './styles.css';
 import Logo from '../../public/logo_circular/SVG/logo_circular.svg';
 import Settings from '../../public/settings.svg';
 
-const Component: React.FC<{}> = () => (
+const Component: React.FC<{hideSettings?: boolean}> = ({ hideSettings = false }) => (
   <header className={styles.header}>
     <div className={styles.logoAndTitleWrapper}>
       <button
@@ -22,18 +22,26 @@ const Component: React.FC<{}> = () => (
     <div
       className={styles.settingsWrapper}
     >
-      <button
-        className={styles.settingsButton}
-        type="button"
-        title="Settings"
-        onClick={(): void => {
-          Router.push('/settings');
-        }}
-      >
-        <div style={{ display: 'flex', height: '100%', alignItems: 'center' }}>
-          <Settings />
-        </div>
-      </button>
+      {
+        !hideSettings
+          ? (
+            <button
+              className={styles.settingsButton}
+              type="button"
+              title="Settings"
+              onClick={(): void => {
+                Router.push('/settings');
+              }}
+            >
+              <div style={{ display: 'flex', height: '100%', alignItems: 'center' }}>
+                <Settings />
+              </div>
+            </button>
+          )
+          : (
+            null
+          )
+      }
     </div>
   </header>
 );
