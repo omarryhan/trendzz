@@ -21,7 +21,7 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
         <div className={styles.avatarWrapper}>
           <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
         </div>
-        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer">
+        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer" onClick={(e): void => e.preventDefault()}>
           <h2 className={styles.repoName}>
             {`${repo.author}/${repo.name}`}
           </h2>
@@ -29,7 +29,7 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => (
       </div>
 
       <div className={styles.repoDescriptionRow}>
-        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer">
+        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer" onClick={(e): void => e.preventDefault()}>
           <p className={styles.repoDescription}>
             {repo.description}
           </p>
