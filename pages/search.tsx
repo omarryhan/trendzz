@@ -7,7 +7,7 @@ import SelectSection from '../components/SelectSection';
 import Repos from '../components/Repos';
 import BottomNav from '../components/BottomNav';
 
-const Page: NextPage<{}> = () => (
+const Page: NextPage = () => (
   <>
     <Head>
       <meta name="title" content="Trendzz | Search" />
@@ -22,7 +22,7 @@ const Page: NextPage<{}> = () => (
         setLanguage,
         setTime,
         isFetchingRepos,
-      }): ReturnType<React.FC<{}>> => (
+      }): ReturnType<React.FC> => (
         <>
           <Repos repos={repos} isFetchingRepos={isFetchingRepos} />
           <SelectSection

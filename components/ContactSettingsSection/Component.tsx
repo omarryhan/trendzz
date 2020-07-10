@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.css';
 
-const Component: React.FC<{}> = () => (
+const Component: React.FC = () => (
   <section className={styles.sectionWrapper}>
     <h2 className={styles.settingsTitle}>
       Contact

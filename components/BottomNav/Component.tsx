@@ -6,7 +6,7 @@ import SearchOutline from '../../public/search-outline.svg';
 import Cafe from '../../public/cafe.svg';
 import Search from '../../public/search.svg';
 
-const Component: React.FC<{}> = () => {
+const Component: React.FC = () => {
   let path = '/';
 
   if (typeof window !== 'undefined') {

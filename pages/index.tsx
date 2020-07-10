@@ -6,7 +6,7 @@ import BottomNav from '../components/BottomNav';
 import WithFetchFeedRepos from '../components/WithFetchFeedRepos';
 import Repos from '../components/Repos';
 
-const Page: NextPage<{}> = () => (
+const Page: NextPage = () => (
   <>
     <Head>
       <meta name="title" content="Trendzz | Feed" />
@@ -17,7 +17,7 @@ const Page: NextPage<{}> = () => (
       {({
         repos,
         isFetchingRepos,
-      }): ReturnType<React.FC<{}>> => (
+      }): ReturnType<React.FC> => (
         <>
           <Repos repos={repos} isFetchingRepos={isFetchingRepos} isBigHeight />
         </>

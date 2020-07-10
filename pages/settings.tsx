@@ -7,7 +7,7 @@ import BottomNav from '../components/BottomNav';
 import SettingsBody from '../components/SettingsBody';
 import ContactSettingsSection from '../components/ContactSettingsSection';
 
-const Page: NextPage<{}> = () => (
+const Page: NextPage = () => (
   <>
     <Head>
       <meta name="title" content="Trendzz | Settings" />

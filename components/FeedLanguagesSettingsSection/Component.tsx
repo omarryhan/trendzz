@@ -19,7 +19,7 @@ const setCheckedLanguagesLocalStorage = (langs: string[]): void => {
   window.localStorage.setItem('feedLanguages', langs.join(','));
 };
 
-const Component: React.FC<{}> = () => {
+const Component: React.FC = () => {
   const [checkedLanguages, setCheckedLanguages] = React.useState(getCheckedLanguages());
 
   const isLanguageChecked = (name: string): boolean => checkedLanguages.some(
