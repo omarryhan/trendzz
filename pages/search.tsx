@@ -24,7 +24,7 @@ const Page: NextPage = () => (
         isFetchingRepos,
       }): ReturnType<React.FC> => (
         <>
-          <Repos repos={repos} isFetchingRepos={isFetchingRepos} />
+          <Repos repos={repos} isFetchingRepos={isFetchingRepos} showRead />
           <SelectSection
             time={time}
             language={language}

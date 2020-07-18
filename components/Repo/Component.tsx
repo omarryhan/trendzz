@@ -1,69 +1,130 @@
 import React from 'react';
+import { set, get } from 'idb-keyval';
 import { Repo } from '../types';
 import styles from './styles.css';
 import Star from '../../public/star_github.svg';
 
-const Component: React.FC<{repo: Repo}> = ({ repo }) => (
-  <div
-    className={styles.repoWrapper}
-  >
-    <button
-      onClick={
-        function redirect(): void {
-          window.open(repo.url, '_blank');
-        }
+interface RepoStorage {
+  isOpened?: boolean
+}
+
+const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
+  const repo = await get<RepoStorage>(repoUrl);
+  await set(repoUrl, {
+    ...repo,
+    isOpened: true,
+  });
+};
+
+const isRepoOpened = async (repoUrl: string): Promise<boolean> => {
+  const { isOpened } = (await get<RepoStorage>(repoUrl)) || {};
+  if (typeof isOpened === 'undefined') {
+    return false;
+  }
+  return isOpened;
+};
+
+const Component: React.FC<{repo: Repo}> = ({ repo }) => {
+  const [isRepoOpenedState, setIsRepoOpenedState] = React.useState(false);
+
+  React.useEffect(() => {
+    const effect = async () => {
+      const isRepoOpenedResponse = await isRepoOpened(repo.url);
+      if (isRepoOpenedResponse !== isRepoOpenedState) {
+        setIsRepoOpenedState(isRepoOpenedResponse);
       }
-      type="button"
-      title={`${repo.url}`}
-      className={styles.repoButton}
+    };
+    effect();
+  }, [
+    isRepoOpenedState,
+    repo.url,
+  ]);
+
+  return (
+    <div
+      className={styles.repoWrapper}
     >
-      <div className={styles.repoNameRow}>
-        <div className={styles.avatarWrapper}>
-          <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
-        </div>
-        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer" onClick={(e): void => e.preventDefault()}>
-          <h2 className={styles.authorName}>
-            {`${repo.author}/`}
-          </h2>
-          <h2 className={styles.repoName}>
-            {repo.name}
-          </h2>
-        </a>
-      </div>
-
-      <div className={styles.repoDescriptionRow}>
-        <a href={repo.url} className={styles.noStyleAnchor} target="_blank" rel="noreferrer" onClick={(e): void => e.preventDefault()}>
-          <p className={styles.repoDescription}>
-            {repo.description}
-          </p>
-        </a>
-      </div>
-
-      <div className={styles.repoPropertiesRow}>
-        <div className={styles.repoPropertyColumn} style={{ minWidth: '65px' }}>
-          <div className={styles.propertIconWrapper}>
-            <Star />
+      <button
+        onClick={
+          function redirect(): void {
+            setIsRepoOpenedState(true);
+            markRepoAsOpened(repo.url);
+            window.open(repo.url, '_blank');
+          }
+        }
+        type="button"
+        title={`${repo.url}`}
+        className={styles.repoButton}
+      >
+        <div className={styles.repoNameRow}>
+          <div className={styles.avatarWrapper}>
+            <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
           </div>
-          <p className={styles.repoProperty}>
-            {repo.stars}
-          </p>
-        </div>
-
-        <div className={styles.repoPropertyColumn}>
-          <div className={styles.propertIconWrapper}>
-            <span style={{
-              // stylelint-disable-next-line value-keyword-case
-              backgroundColor: repo.languageColor, // inline because of this dynamic property
+          <a
+            href={repo.url}
+            className={styles.noStyleAnchor}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e): void => {
+              setIsRepoOpenedState(true);
+              markRepoAsOpened(repo.url);
+              e.preventDefault();
             }}
-            />
-          </div>
-          <p className={styles.repoProperty}>
-            {repo.language}
-          </p>
+          >
+            <h2 className={`${styles.authorName} ${isRepoOpenedState ? styles.authorName_opened : ''}`}>
+              {`${repo.author}/`}
+            </h2>
+            <h2 className={`${styles.repoName} ${isRepoOpenedState ? styles.repoName_opened : ''}`}>
+              {repo.name}
+            </h2>
+          </a>
         </div>
-      </div>
-    </button>
-  </div>
-);
+
+        <div className={styles.repoDescriptionRow}>
+          <a
+            href={repo.url}
+            className={styles.noStyleAnchor}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e): void => {
+              setIsRepoOpenedState(true);
+              markRepoAsOpened(repo.url);
+              e.preventDefault();
+            }}
+          >
+            <p className={`${styles.repoDescription} ${isRepoOpenedState ? styles.repoDescription_opened : ''}`}>
+              {repo.description}
+            </p>
+          </a>
+        </div>
+
+        <div className={styles.repoPropertiesRow}>
+          <div className={styles.repoPropertyColumn} style={{ minWidth: '65px' }}>
+            <div className={styles.propertIconWrapper}>
+              <Star />
+            </div>
+            <p className={`${styles.repoProperty} ${isRepoOpenedState ? styles.repoProperty_opened : ''}`}>
+              {repo.stars}
+            </p>
+          </div>
+
+          <div className={styles.repoPropertyColumn}>
+            <div className={styles.propertIconWrapper}>
+              <span style={{
+                // stylelint-disable-next-line value-keyword-case
+                backgroundColor: repo.languageColor,
+                // inline because of this dynamic property
+              }}
+              />
+            </div>
+            <p className={`${styles.repoProperty} ${isRepoOpenedState ? styles.repoProperty_opened : ''}`}>
+              {repo.language}
+            </p>
+          </div>
+        </div>
+      </button>
+    </div>
+  );
+};
 
 export default Component;

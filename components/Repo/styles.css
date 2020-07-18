@@ -50,11 +50,15 @@ input[type="reset"] {
 
 .repoDescription {
   margin: 20px 0 25px 0;
-  font-size: 17px;
+  font-size: 16.5px;
   text-align: left;
-  color: rgb(45, 45, 45);
+  color: rgb(50, 50, 50);
   overflow-wrap: break-word;
   line-height: 1.5;
+}
+
+.repoDescription_opened {
+  color: rgba(50, 50, 50, 0.6);
 }
 
 .repoPropertiesRow {
@@ -76,6 +80,10 @@ input[type="reset"] {
   overflow-wrap: break-word;
 }
 
+.repoName_opened {
+  color: var(--bg-blue-light);
+}
+
 .authorName {
   display: inline;
   margin: 0 0 0 0;
@@ -86,10 +94,18 @@ input[type="reset"] {
   overflow-wrap: break-word;
 }
 
+.authorName_opened {
+  color: var(--bg-blue-light);
+}
+
 .repoProperty {
   font-size: 12px;
   margin: 0 3px 0 0;
   color: rgb(99, 99, 99);
+}
+
+.repoProperty_opened {
+  color: rgba(99, 99, 99, 0.6);
 }
 
 .propertIconWrapper {
