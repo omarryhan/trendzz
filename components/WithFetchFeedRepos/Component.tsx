@@ -1,7 +1,7 @@
 import React from 'react';
-import { createQueryURL, languages } from '../../configs';
+import { createQueryURL, languages, repoLastOpenedExpiryTime } from '../../configs';
 import { Repo } from '../types';
-import { isRepoOpened } from '../../actions/repo';
+import { getRepo } from '../../actions/repo';
 
 const fetchRepos = async (
   feedLanguages: string[], setIsFetching: (state: boolean) => void,
@@ -69,8 +69,10 @@ const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
       const filteredRepos: Repo[] = [];
 
       await Promise.all(fetchedRepos.map(async (repo) => {
-        const isOpened = await isRepoOpened(repo.url);
-        !isOpened && filteredRepos.push(repo);
+        const { isOpened, lastOpenedAt } = await getRepo(repo.url);
+        if (!isOpened || (isOpened && (lastOpenedAt + repoLastOpenedExpiryTime) <= Date.now())) {
+          filteredRepos.push(repo);
+        }
       }));
 
       // You can't promise all with filter :((
