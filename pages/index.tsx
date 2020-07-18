@@ -13,7 +13,9 @@ const Page: NextPage = () => (
       <title>Trendzz | Feed</title>
     </Head>
     <Header />
-    <WithFetchFeedRepos>
+    <WithFetchFeedRepos
+      hideOpened
+    >
       {({
         repos,
         isFetchingRepos,

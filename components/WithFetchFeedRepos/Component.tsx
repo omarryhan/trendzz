@@ -1,6 +1,7 @@
 import React from 'react';
 import { createQueryURL, languages } from '../../configs';
 import { Repo } from '../types';
+import { isRepoOpened } from '../../actions/repo';
 
 const fetchRepos = async (
   feedLanguages: string[], setIsFetching: (state: boolean) => void,
@@ -39,6 +40,7 @@ interface Props {
     repos: Repo[];
     isFetchingRepos: boolean;
   }>;
+  hideOpened?: boolean;
 }
 
 const getInitialLanguages = (): string[] => {
@@ -56,16 +58,33 @@ const getInitialLanguages = (): string[] => {
   return feedLanguages.split(',');
 };
 
-const Component: React.FC<Props> = ({ children }) => {
+const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
   const [repos, setRepos] = React.useState<Repo[]>([]);
   const [isFetchingRepos, setIsFetchingRepos] = React.useState(false);
   const feedLanguages = getInitialLanguages();
 
   React.useEffect(() => {
     const effect = async (): Promise<void> => {
-      setRepos(await fetchRepos(feedLanguages, setIsFetchingRepos));
-    };
+      const fetchedRepos = await fetchRepos(feedLanguages, setIsFetchingRepos);
+      const filteredRepos: Repo[] = [];
 
+      await Promise.all(fetchedRepos.map(async (repo) => {
+        const isOpened = await isRepoOpened(repo.url);
+        !isOpened && filteredRepos.push(repo);
+      }));
+
+      // You can't promise all with filter :((
+      // Almost went crazy because it didn't even throw an error
+      // const filteredRepos = hideOpened ? await Promise.all(fetchedRepos.filter(
+      //   async (repo) => await !isRepoOpened(repo.url),
+      // )) : fetchedRepos;
+
+      if (hideOpened) {
+        setRepos(filteredRepos);
+      } else {
+        setRepos(fetchedRepos);
+      }
+    };
     effect();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

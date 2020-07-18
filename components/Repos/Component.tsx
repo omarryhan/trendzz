@@ -8,11 +8,10 @@ interface Props {
   repos: RepoInterface[];
   isFetchingRepos: boolean;
   isBigHeight?: boolean;
-  showRead?: boolean;
 }
 
 const Component: React.FC<Props> = ({
-  repos, isFetchingRepos, isBigHeight = false, showRead = false,
+  repos, isFetchingRepos, isBigHeight = false,
 }) => (
   <div className={`${styles.reposWrapper} ${isBigHeight ? styles.reposWrapper_bigHeight : styles.reposWrapper_smallHeight}`}>
     {

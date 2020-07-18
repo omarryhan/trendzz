@@ -1,28 +1,8 @@
 import React from 'react';
-import { set, get } from 'idb-keyval';
+import { isRepoOpened, markRepoAsOpened } from '../../actions/repo';
 import { Repo } from '../types';
 import styles from './styles.css';
 import Star from '../../public/star_github.svg';
-
-interface RepoStorage {
-  isOpened?: boolean
-}
-
-const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
-  const repo = await get<RepoStorage>(repoUrl);
-  await set(repoUrl, {
-    ...repo,
-    isOpened: true,
-  });
-};
-
-const isRepoOpened = async (repoUrl: string): Promise<boolean> => {
-  const { isOpened } = (await get<RepoStorage>(repoUrl)) || {};
-  if (typeof isOpened === 'undefined') {
-    return false;
-  }
-  return isOpened;
-};
 
 const Component: React.FC<{repo: Repo}> = ({ repo }) => {
   const [isRepoOpenedState, setIsRepoOpenedState] = React.useState(false);
