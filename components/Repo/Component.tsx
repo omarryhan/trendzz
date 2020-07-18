@@ -58,7 +58,15 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => {
       >
         <div className={styles.repoNameRow}>
           <div className={styles.avatarWrapper}>
-            <img src={repo.avatar} alt="Author's avatar" className={styles.avatar} />
+            <img
+              src={repo.avatar}
+              alt="Author's avatar"
+              className={styles.avatar}
+              style={{
+                // stylelint-disable-next-line value-keyword-case
+                opacity: isRepoOpenedState ? '0.6' : '1',
+              }}
+            />
           </div>
           <a
             href={repo.url}
