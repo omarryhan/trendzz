@@ -1,7 +1,8 @@
 import { set, get } from 'idb-keyval';
 
 interface RepoStorage {
-  isOpened?: boolean
+  isOpened?: boolean;
+  lastOpenedAt?: number;
 }
 
 export const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
@@ -9,8 +10,13 @@ export const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
   await set(repoUrl, {
     ...repo,
     isOpened: true,
+    lastOpenedAt: Date.now(),
   });
 };
+
+export const getRepo = async (
+  repoUrl: string,
+): Promise<RepoStorage> => await get<RepoStorage>(repoUrl) || {};
 
 export const isRepoOpened = async (repoUrl: string): Promise<boolean> => {
   const { isOpened } = (await get<RepoStorage>(repoUrl)) || {};
