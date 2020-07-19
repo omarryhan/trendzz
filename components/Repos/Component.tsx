@@ -24,11 +24,18 @@ const Component: React.FC<Props> = ({
               // eslint-disable-next-line react/no-array-index-key
               <Repo repo={repo} key={`${repo.url}-${i}`} />
             ))
-            : (
-              <div className={styles.loadingIndicatorWrapper}>
-                <EmptyPlaceholder />
-              </div>
-            )
+            : typeof window !== 'undefined'
+              ? (
+                <div className={styles.loadingIndicatorWrapper}>
+                  <EmptyPlaceholder />
+                </div>
+              )
+              : (
+                <div className={styles.loadingIndicatorWrapper}>
+                  <ReactLoading type="spin" width="40px" color="#666" />
+                </div>
+
+              )
         )
         : (
           <div className={styles.loadingIndicatorWrapper}>
