@@ -1,7 +1,7 @@
 import React from 'react';
 import { createQueryURL, languages, repoLastOpenedExpiryTime } from '../../configs';
 import { Repo } from '../types';
-import { getRepo } from '../../actions/repo';
+import { getRepo, markRepoAsOpened } from '../../actions/repo';
 
 const fetchRepos = async (
   feedLanguages: string[],
@@ -77,8 +77,16 @@ const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
           setIsFetchingRepos(true);
           const { isOpened, lastOpenedAt } = await getRepo(repo.url);
 
-          if (!isOpened || (isOpened && (lastOpenedAt + repoLastOpenedExpiryTime) <= Date.now())) {
+          const isOpenedButExpired = isOpened
+            && (lastOpenedAt + repoLastOpenedExpiryTime) <= Date.now();
+
+          if (!isOpened || isOpenedButExpired) {
             filteredRepos.push(repo);
+          }
+
+          if (isOpenedButExpired) {
+            // make the new expiry now
+            await markRepoAsOpened(repo.url);
           }
         }));
 

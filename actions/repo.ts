@@ -7,7 +7,7 @@ interface RepoStorage {
 
 export const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
   try {
-    const repo = await get<RepoStorage>(repoUrl);
+    const repo = await get<RepoStorage | undefined>(repoUrl) || {};
     await set(repoUrl, {
       ...repo,
       isOpened: true,
