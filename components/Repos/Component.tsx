@@ -20,7 +20,6 @@ const Component: React.FC<Props> = ({
         ? (
           repos.length
             ? repos.map((repo, i) => (
-              // some repos can show up twice
               // eslint-disable-next-line react/no-array-index-key
               <Repo repo={repo} key={`${repo.url}-${i}`} />
             ))

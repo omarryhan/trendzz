@@ -5,6 +5,11 @@ interface RepoStorage {
   lastOpenedAt: number;
 }
 
+const defaultRepo: RepoStorage = {
+  isOpened: false,
+  lastOpenedAt: 0,
+};
+
 export const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
   try {
     const repo = await get<RepoStorage | undefined>(repoUrl) || {};
@@ -18,14 +23,27 @@ export const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
   }
 };
 
+export const toggleOpenedState = async (repoUrl: string): Promise<void> => {
+  try {
+    const repo = await get<RepoStorage | undefined>(repoUrl) || defaultRepo;
+    await set(repoUrl, {
+      ...repo,
+      isOpened: !repo.isOpened,
+      lastOpenedAt: !repo.lastOpenedAt
+        ? Date.now()
+        : repo.isOpened
+          ? repo.lastOpenedAt
+          : Date.now(),
+    });
+    console.log(repo.isOpened);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 export const getRepo = async (
   repoUrl: string,
 ): Promise<RepoStorage> => {
-  const defaultRepo: RepoStorage = {
-    isOpened: false,
-    lastOpenedAt: 0,
-  };
-
   let resp: RepoStorage = defaultRepo;
   try {
     resp = await get<RepoStorage | undefined>(repoUrl) || defaultRepo;
