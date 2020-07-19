@@ -5,12 +5,13 @@ import styles from './styles.css';
 
 interface Props {
   onSlide: () => void | Promise<void>;
+  turnedOff?: boolean
 }
 
 const triggerActionOn = -130;
 const maxSlide = -200;
 
-const Component: React.FC<Props> = ({ children, onSlide }) => {
+const Component: React.FC<Props> = ({ children, onSlide, turnedOff }) => {
   const [isDraggingSetOnce, setIsDraggingSetOnce] = React.useState(false);
 
   const animation = useAnimation();
@@ -33,6 +34,14 @@ const Component: React.FC<Props> = ({ children, onSlide }) => {
       axis: 'x',
     },
   });
+
+  if (turnedOff) {
+    return (
+      <div>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div
