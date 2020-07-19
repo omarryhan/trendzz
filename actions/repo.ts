@@ -6,25 +6,36 @@ interface RepoStorage {
 }
 
 export const markRepoAsOpened = async (repoUrl: string): Promise<void> => {
-  const repo = await get<RepoStorage>(repoUrl);
-  await set(repoUrl, {
-    ...repo,
-    isOpened: true,
-    lastOpenedAt: Date.now(),
-  });
+  try {
+    const repo = await get<RepoStorage>(repoUrl);
+    await set(repoUrl, {
+      ...repo,
+      isOpened: true,
+      lastOpenedAt: Date.now(),
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export const getRepo = async (
   repoUrl: string,
-): Promise<RepoStorage> => await get<RepoStorage | undefined>(repoUrl) || {
-  isOpened: false,
-  lastOpenedAt: 0,
+): Promise<RepoStorage> => {
+  const defaultRepo: RepoStorage = {
+    isOpened: false,
+    lastOpenedAt: 0,
+  };
+
+  let resp: RepoStorage = defaultRepo;
+  try {
+    resp = await get<RepoStorage | undefined>(repoUrl) || defaultRepo;
+  } catch (e) {
+    console.error(e);
+    return defaultRepo;
+  }
+  return resp;
 };
 
-export const isRepoOpened = async (repoUrl: string): Promise<boolean> => {
-  const { isOpened } = (await get<RepoStorage>(repoUrl)) || {};
-  if (typeof isOpened === 'undefined') {
-    return false;
-  }
-  return isOpened;
-};
+export const isRepoOpened = async (
+  repoUrl: string,
+): Promise<boolean> => (await getRepo(repoUrl)).isOpened;
