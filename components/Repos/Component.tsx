@@ -8,10 +8,11 @@ interface Props {
   repos: RepoInterface[];
   isFetchingRepos: boolean;
   isBigHeight?: boolean;
+  EmptyPlaceholder: React.FC;
 }
 
 const Component: React.FC<Props> = ({
-  repos, isFetchingRepos, isBigHeight = false,
+  repos, isFetchingRepos, isBigHeight = false, EmptyPlaceholder,
 }) => (
   <div className={`${styles.reposWrapper} ${isBigHeight ? styles.reposWrapper_bigHeight : styles.reposWrapper_smallHeight}`}>
     {
@@ -24,9 +25,9 @@ const Component: React.FC<Props> = ({
               <Repo repo={repo} key={`${repo.url}-${i}`} />
             ))
             : (
-              <p className={styles.loadingIndicatorWrapper}>
-                Found nothing :(
-              </p>
+              <div className={styles.loadingIndicatorWrapper}>
+                <EmptyPlaceholder />
+              </div>
             )
         )
         : (

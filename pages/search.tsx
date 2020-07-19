@@ -6,6 +6,7 @@ import WithFetchRepos from '../components/WithFetchRepos';
 import SelectSection from '../components/SelectSection';
 import Repos from '../components/Repos';
 import BottomNav from '../components/BottomNav';
+import NoResultsOctocat from '../components/NoResultsOctocat';
 
 const Page: NextPage = () => (
   <>
@@ -24,7 +25,11 @@ const Page: NextPage = () => (
         isFetchingRepos,
       }): ReturnType<React.FC> => (
         <>
-          <Repos repos={repos} isFetchingRepos={isFetchingRepos} />
+          <Repos
+            repos={repos}
+            isFetchingRepos={isFetchingRepos}
+            EmptyPlaceholder={NoResultsOctocat}
+          />
           <SelectSection
             time={time}
             language={language}

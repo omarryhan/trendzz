@@ -17,3 +17,21 @@
   align-items: center;
   justify-content: center;
 }
+
+.loadingIndicatorWrapper div {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loadingIndicatorWrapper div h2 {
+  text-align: center;
+  margin: 0 0;
+  font-weight: normal;
+  font-size: 30px;
+}
+
+.loadingIndicatorWrapper div svg {
+  width: 100%;
+}

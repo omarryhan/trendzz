@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import BottomNav from '../components/BottomNav';
 import WithFetchFeedRepos from '../components/WithFetchFeedRepos';
 import Repos from '../components/Repos';
+import NoTrendingOctocat from '../components/NoTrendingOctocat';
 
 const Page: NextPage = () => (
   <>
@@ -21,7 +22,12 @@ const Page: NextPage = () => (
         isFetchingRepos,
       }): ReturnType<React.FC> => (
         <>
-          <Repos repos={repos} isFetchingRepos={isFetchingRepos} isBigHeight />
+          <Repos
+            repos={repos}
+            isFetchingRepos={isFetchingRepos}
+            isBigHeight
+            EmptyPlaceholder={NoTrendingOctocat}
+          />
         </>
       )}
     </WithFetchFeedRepos>
