@@ -11,6 +11,10 @@
   border-radius: var(--normal-border-radius);
 }
 
+.isOpenedOpacity {
+  opacity: 0.6;
+}
+
 .repoButton,
 input[type="submit"],
 input[type="reset"] {
@@ -57,10 +61,6 @@ input[type="reset"] {
   line-height: 1.5;
 }
 
-.repoDescription_opened {
-  color: rgba(50, 50, 50, 0.6);
-}
-
 .repoPropertiesRow {
   display: flex;
   justify-content: flex-start;
@@ -73,20 +73,16 @@ input[type="reset"] {
 
 .repoName {
   display: inline;
-  margin: 0 0 0 0;
+  margin: 0 0;
   font-size: 20px;
   text-align: left;
   color: var(--bg-blue);
   overflow-wrap: break-word;
 }
 
-.repoName_opened {
-  color: var(--bg-blue-light);
-}
-
 .authorName {
   display: inline;
-  margin: 0 0 0 0;
+  margin: 0 0;
   font-weight: normal;
   font-size: 20px;
   text-align: left;
@@ -94,18 +90,10 @@ input[type="reset"] {
   overflow-wrap: break-word;
 }
 
-.authorName_opened {
-  color: var(--bg-blue-light);
-}
-
 .repoProperty {
   font-size: 12px;
   margin: 0 3px 0 0;
   color: rgb(99, 99, 99);
-}
-
-.repoProperty_opened {
-  color: rgba(99, 99, 99, 0.6);
 }
 
 .propertIconWrapper {

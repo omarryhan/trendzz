@@ -4,11 +4,10 @@ import { Repo } from '../types';
 import { getRepo } from '../../actions/repo';
 
 const fetchRepos = async (
-  feedLanguages: string[], setIsFetching: (state: boolean) => void,
+  feedLanguages: string[],
 ): Promise<Repo[]> => {
   let allResults = [] as Repo[][];
   try {
-    setIsFetching(true);
     allResults = await Promise.all(feedLanguages.map(async (language): Promise<Repo[]> => {
       const url = createQueryURL(languages[language].url, 'daily');
       return await (await fetch(url)).json() as Repo[];
@@ -16,8 +15,6 @@ const fetchRepos = async (
   } catch (e) {
     alert(e.message);
     console.error(e);
-  } finally {
-    setIsFetching(false);
   }
 
   const retVal: Repo[] = [];
@@ -65,26 +62,33 @@ const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
 
   React.useEffect(() => {
     const effect = async (): Promise<void> => {
-      const fetchedRepos = await fetchRepos(feedLanguages, setIsFetchingRepos);
-      const filteredRepos: Repo[] = [];
+      setIsFetchingRepos(true);
+      try {
+        const fetchedRepos = await fetchRepos(feedLanguages);
+        const filteredRepos: Repo[] = [];
 
-      await Promise.all(fetchedRepos.map(async (repo) => {
-        const { isOpened, lastOpenedAt } = await getRepo(repo.url);
-        if (!isOpened || (isOpened && (lastOpenedAt + repoLastOpenedExpiryTime) <= Date.now())) {
-          filteredRepos.push(repo);
+        // You can't promise all with filter :((
+        // Almost went crazy because it didn't even throw an error
+        // const filteredRepos = hideOpened ? await Promise.all(fetchedRepos.filter(
+        //   async (repo) => await !isRepoOpened(repo.url),
+        // )) : fetchedRepos;
+
+        await Promise.all(fetchedRepos.map(async (repo) => {
+          setIsFetchingRepos(true);
+          const { isOpened, lastOpenedAt } = await getRepo(repo.url);
+
+          if (!isOpened || (isOpened && (lastOpenedAt + repoLastOpenedExpiryTime) <= Date.now())) {
+            filteredRepos.push(repo);
+          }
+        }));
+
+        if (hideOpened) {
+          setRepos(filteredRepos);
+        } else {
+          setRepos(fetchedRepos);
         }
-      }));
-
-      // You can't promise all with filter :((
-      // Almost went crazy because it didn't even throw an error
-      // const filteredRepos = hideOpened ? await Promise.all(fetchedRepos.filter(
-      //   async (repo) => await !isRepoOpened(repo.url),
-      // )) : fetchedRepos;
-
-      if (hideOpened) {
-        setRepos(filteredRepos);
-      } else {
-        setRepos(fetchedRepos);
+      } finally {
+        setIsFetchingRepos(false);
       }
     };
     effect();

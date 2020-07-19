@@ -39,7 +39,7 @@
 }
 
 .selectPageButton_inactive svg {
-  fill: var(--bg-gray-medium);
+  fill: var(--bg-gray-medium-light);
 }
 
 .navDescription {
@@ -52,5 +52,5 @@
 }
 
 .navDescription_inactive {
-  color: var(--bg-gray-medium);
+  color: var(--bg-gray-medium-light);
 }

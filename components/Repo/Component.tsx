@@ -59,10 +59,10 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => {
               e.preventDefault();
             }}
           >
-            <h2 className={`${styles.authorName} ${isRepoOpenedState ? styles.authorName_opened : ''}`}>
+            <h2 className={`${styles.authorName} ${isRepoOpenedState ? styles.isOpenedOpacity : ''}`}>
               {`${repo.author}/`}
             </h2>
-            <h2 className={`${styles.repoName} ${isRepoOpenedState ? styles.repoName_opened : ''}`}>
+            <h2 className={`${styles.repoName} ${isRepoOpenedState ? styles.isOpenedOpacity : ''}`}>
               {repo.name}
             </h2>
           </a>
@@ -80,7 +80,7 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => {
               e.preventDefault();
             }}
           >
-            <p className={`${styles.repoDescription} ${isRepoOpenedState ? styles.repoDescription_opened : ''}`}>
+            <p className={`${styles.repoDescription} ${isRepoOpenedState ? styles.isOpenedOpacity : ''}`}>
               {repo.description}
             </p>
           </a>
@@ -88,24 +88,26 @@ const Component: React.FC<{repo: Repo}> = ({ repo }) => {
 
         <div className={styles.repoPropertiesRow}>
           <div className={styles.repoPropertyColumn} style={{ minWidth: '65px' }}>
-            <div className={styles.propertIconWrapper}>
+            <div className={`${styles.propertIconWrapper} ${isRepoOpenedState ? styles.isOpenedOpacity : ''}`}>
               <Star />
             </div>
-            <p className={`${styles.repoProperty} ${isRepoOpenedState ? styles.repoProperty_opened : ''}`}>
+            <p className={`${styles.repoProperty} ${isRepoOpenedState ? styles.isOpenedOpacity : ''}`}>
               {repo.stars}
             </p>
           </div>
 
           <div className={styles.repoPropertyColumn}>
             <div className={styles.propertIconWrapper}>
-              <span style={{
-                // stylelint-disable-next-line value-keyword-case
-                backgroundColor: repo.languageColor,
-                // inline because of this dynamic property
-              }}
+              <span
+                style={{
+                  // inline because of this dynamic property
+                  // stylelint-disable-next-line value-keyword-case
+                  backgroundColor: repo.languageColor,
+                }}
+                className={isRepoOpenedState ? styles.isOpenedOpacity : ''}
               />
             </div>
-            <p className={`${styles.repoProperty} ${isRepoOpenedState ? styles.repoProperty_opened : ''}`}>
+            <p className={`${styles.repoProperty} ${isRepoOpenedState ? styles.isOpenedOpacity : ''}`}>
               {repo.language}
             </p>
           </div>

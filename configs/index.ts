@@ -1,6 +1,6 @@
 // https://github.com/huchenme/github-trending-api
 
-export const repoLastOpenedExpiryTime = 1000 * 60 * 60 * 24 * 30 * 6; // 6 months
+export const repoLastOpenedExpiryTime = 1000 * 60 * 60 * 24 * 30 * 3; // 3 months
 
 export const createQueryURL = (language: string | undefined, since: string | undefined): string => {
   let baseUrl = 'https://ghapi.huchen.dev/repositories?';

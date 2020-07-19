@@ -26,10 +26,12 @@ body {
 
 :root {
   /* Colors */
-  --bg-gray: #ced4da;
-  --bg-gray-medium: rgb(150, 150, 150);
-  --bg-gray-dark: #24292e;
+  /* https://primer.style/css/support/color-system */
   --bg-gray-light: #fafbfc;
+  --bg-gray: #ced4da;
+  --bg-gray-medium-light: #959da5;
+  --bg-gray-medium: #6a737d;
+  --bg-gray-dark: #24292e;
   --bg-blue: #0366d6;
   --bg-blue-light: #5b90cc;
   --bg-yellow: #ffd33d;
