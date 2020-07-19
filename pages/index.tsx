@@ -27,6 +27,7 @@ const Page: NextPage = () => (
             isFetchingRepos={isFetchingRepos}
             isBigHeight
             EmptyPlaceholder={NoTrendingOctocat}
+            canMarkAsRead
           />
         </>
       )}
