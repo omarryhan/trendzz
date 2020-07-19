@@ -57,7 +57,7 @@ const getInitialLanguages = (): string[] => {
 
 const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
   const [repos, setRepos] = React.useState<Repo[]>([]);
-  const [isFetchingRepos, setIsFetchingRepos] = React.useState(false);
+  const [isFetchingRepos, setIsFetchingRepos] = React.useState(true);
   const feedLanguages = getInitialLanguages();
 
   React.useEffect(() => {
