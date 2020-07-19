@@ -1,0 +1,5 @@
+.slideDiv {
+  outline: none;
+  max-width: var(--view-max-width);
+  margin: 0 auto;
+}

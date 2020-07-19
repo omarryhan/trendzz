@@ -35,7 +35,6 @@ export const toggleOpenedState = async (repoUrl: string): Promise<void> => {
           ? repo.lastOpenedAt
           : Date.now(),
     });
-    console.log(repo.isOpened);
   } catch (e) {
     console.error(e);
   }
