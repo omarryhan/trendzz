@@ -16,7 +16,7 @@ https://trendzz.netlify.app
 
 ## Known issues
 
-If you're having trouble seeing the bottom select row, you can either:
+1. If you're having trouble seeing the bottom select row, you can either:
 
 - Add the app to your homescreen and open it again, this will correctly show the full height (`100vh`).
 - Try pulling the header upwards.
@@ -24,7 +24,7 @@ If you're having trouble seeing the bottom select row, you can either:
 I think browsers should always show `100vh` regardless whether the user has started scrolling down or not.
 Firefox doesn't seem to have this issue. Chrome and Chromium based browsers do. Yay Firefox.
 
-Some browsers disallow access to indexed db in Incognito. I tried to make sure that all the indexed db ops are fail safe, so that your app app never fails if it can't mark a repo as read.
+2. Some browsers disallow access to indexed db in Incognito. I tried to make sure that all the indexed db ops are fail safe, so that your app app never fails if it can't mark a repo as read.
 
 ## Thanks
 
