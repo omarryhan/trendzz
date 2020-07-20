@@ -41,7 +41,7 @@ const Component: React.FC<Props> = ({
                     canMarkAsRead
                       ? (
                         <MarkAllAsReadButton action={() => {
-                          repos.map((repo) => {
+                          repos.forEach((repo) => {
                             markRepoAsOpened(repo.url);
                           });
                           setAllMarkedAsRead(true);
