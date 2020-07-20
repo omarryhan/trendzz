@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqWith from 'lodash.uniqwith';
 import { createQueryURL, languages, repoLastOpenedExpiryTime } from '../../configs';
 import { Repo } from '../types';
 import { getRepo, markRepoAsOpened } from '../../actions/repo';
@@ -55,6 +56,8 @@ const getInitialLanguages = (): string[] => {
   return feedLanguages.split(',');
 };
 
+const repoComparator = <R extends Repo >(a: R, b: R) => a.url === b.url;
+
 const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
   const [repos, setRepos] = React.useState<Repo[]>([]);
   const [isFetchingRepos, setIsFetchingRepos] = React.useState(true);
@@ -91,9 +94,9 @@ const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
         }));
 
         if (hideOpened) {
-          setRepos(filteredRepos);
+          setRepos(uniqWith<Repo>(filteredRepos, repoComparator));
         } else {
-          setRepos(fetchedRepos);
+          setRepos(uniqWith<Repo>(fetchedRepos, repoComparator));
         }
       } finally {
         setIsFetchingRepos(false);

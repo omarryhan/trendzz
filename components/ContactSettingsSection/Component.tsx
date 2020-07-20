@@ -7,7 +7,7 @@ const Component: React.FC = () => (
       Contact
     </h2>
     <p className={styles.settingsDescription}>
-      Report a bug, submit a feature request or talk about this project
+      Report a bug, submit a feature request or give feedback
     </p>
 
     <p className={styles.settingsText}>
