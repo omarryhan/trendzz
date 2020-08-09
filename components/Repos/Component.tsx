@@ -24,11 +24,12 @@ const Component: React.FC<Props> = ({
   repos, isFetchingRepos, isBigHeight = false, EmptyPlaceholder, canMarkAsRead = false,
 }) => {
   const [allMarkedAsRead, setAllMarkedAsRead] = React.useState(false);
+  const [isMarkingAllAsRead, setIsMarkingAllAsRead] = React.useState(false);
 
   return (
     <div className={`${styles.reposWrapper} ${isBigHeight ? styles.reposWrapper_bigHeight : styles.reposWrapper_smallHeight}`}>
       {
-        !isFetchingRepos
+        !isFetchingRepos && !isMarkingAllAsRead
           ? (
             repos.length && !allMarkedAsRead
               ? (
@@ -41,10 +42,17 @@ const Component: React.FC<Props> = ({
                     canMarkAsRead
                       ? (
                         <MarkAllAsReadButton action={async () => {
-                          await Promise.all(
-                            repos.map((repo) => markRepoAsOpened(repo.url)),
-                          );
-                          setAllMarkedAsRead(true);
+                          setIsMarkingAllAsRead(true);
+                          try {
+                            await Promise.all(
+                              repos.map((repo) => markRepoAsOpened(repo.url)),
+                            );
+                            setAllMarkedAsRead(true);
+                          } catch (e) {
+                            alert(e);
+                          } finally {
+                            setIsMarkingAllAsRead(false);
+                          }
                         }}
                         />
                       )
