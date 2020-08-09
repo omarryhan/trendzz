@@ -40,10 +40,10 @@ const Component: React.FC<Props> = ({
                   {
                     canMarkAsRead
                       ? (
-                        <MarkAllAsReadButton action={() => {
-                          repos.forEach((repo) => {
-                            markRepoAsOpened(repo.url);
-                          });
+                        <MarkAllAsReadButton action={async () => {
+                          await Promise.all(
+                            repos.map((repo) => markRepoAsOpened(repo.url)),
+                          );
                           setAllMarkedAsRead(true);
                         }}
                         />
