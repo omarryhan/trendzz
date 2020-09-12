@@ -60,6 +60,7 @@ const Component: React.FC = () => {
             <label htmlFor={languageKey} className={styles.labelText}>
               <input
                 name={languageKey}
+                id={languageKey}
                 type="checkbox"
                 checked={isLanguageChecked(languageKey)}
                 onChange={
