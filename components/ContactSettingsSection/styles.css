@@ -17,10 +17,12 @@
   margin: 0 0 25px 0;
   font-size: 18px;
   color: rgb(80, 80, 80);
+  line-height: 1.5;
 }
 
 .settingsText {
   margin: 0 0 25px 0;
   font-size: 18px;
   color: rgb(20, 20, 20);
+  line-height: 1.5;
 }
