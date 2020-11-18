@@ -6,6 +6,7 @@ import FeedLanguagesSettingsSection from '../components/FeedLanguagesSettingsSec
 import BottomNav from '../components/BottomNav';
 import SettingsBody from '../components/SettingsBody';
 import ShuffleSettingsSection from '../components/ShuffleSettingsSection';
+import OldReposSettingsSection from '../components/OldReposSettingsSection';
 import ContactSettingsSection from '../components/ContactSettingsSection';
 
 const Page: NextPage = () => (
@@ -18,6 +19,7 @@ const Page: NextPage = () => (
     <SettingsBody>
       <FeedLanguagesSettingsSection />
       <ShuffleSettingsSection />
+      <OldReposSettingsSection />
       <ContactSettingsSection />
     </SettingsBody>
     <BottomNav />

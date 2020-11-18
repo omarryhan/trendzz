@@ -1,7 +1,5 @@
 // https://github.com/huchenme/github-trending-api
 
-export const repoLastOpenedExpiryTime = 1000 * 60 * 60 * 24 * 30 * 3; // 3 months
-
 export const createQueryURL = (language: string | undefined, since: string | undefined): string => {
   const baseDomain = 'https://github-trending-api.waningflow.com';
   // const baseDomain = 'https://gtrend.yapie.me';

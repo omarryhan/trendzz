@@ -3,10 +3,10 @@ import uniqWith from 'lodash.uniqwith';
 import {
   createQueryURL,
   languages,
-  repoLastOpenedExpiryTime,
 } from '../../configs';
 import { getShuffleModeFromStorage } from '../ShuffleSettingsSection/Component';
 import { getRepo, markRepoAsOpened } from '../../actions/repo';
+import { getAppearAgainFromStorage } from '../OldReposSettingsSection/Component';
 
 const fetchRepos = async (
   feedLanguages: string[],
@@ -89,12 +89,16 @@ const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
         //   async (repo) => await !isRepoOpened(repo.url),
         // )) : fetchedRepos;
 
+        const appearAgainIn = parseInt(getAppearAgainFromStorage(), 10);
+
         await Promise.all(fetchedRepos.map(async (repo) => {
           setIsFetchingRepos(true);
           const { isOpened, lastOpenedAt } = await getRepo(repo.url);
 
           const isOpenedButExpired = isOpened
-            && (lastOpenedAt + repoLastOpenedExpiryTime) <= Date.now();
+            && (lastOpenedAt + (
+              1000 * 60 * 60 * 24 * 30 * appearAgainIn)
+            ) <= Date.now();
 
           if (!isOpened || isOpenedButExpired) {
             filteredRepos.push(repo);
