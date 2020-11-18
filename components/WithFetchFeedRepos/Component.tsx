@@ -1,7 +1,10 @@
 import React from 'react';
 import uniqWith from 'lodash.uniqwith';
-import { createQueryURL, languages, repoLastOpenedExpiryTime } from '../../configs';
-import { Repo } from '../types';
+import {
+  createQueryURL,
+  languages,
+  repoLastOpenedExpiryTime,
+} from '../../configs';
 import { getRepo, markRepoAsOpened } from '../../actions/repo';
 
 const fetchRepos = async (
@@ -12,6 +15,9 @@ const fetchRepos = async (
     allResults = await Promise.all(feedLanguages.map(async (language): Promise<Repo[]> => {
       const url = createQueryURL(languages[language].url, 'daily');
       return await (await fetch(url)).json() as Repo[];
+      // check the comment in pages/api/repositories
+      // const response = await fetch(`/api/repositories?language=${languages[language].url}`);
+      // return await response.json() as Repo[];
     }));
   } catch (e) {
     alert(e.message);

@@ -4,7 +4,7 @@ interface BuiltBy {
   avatar: string;
 }
 
-export interface Repo {
+interface Repo {
   author: string;
   name: string;
   avatar: string;

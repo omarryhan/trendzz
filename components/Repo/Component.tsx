@@ -1,7 +1,6 @@
 import React from 'react';
 import WithSlide from '../WithSlide';
 import { isRepoOpened, markRepoAsOpened, toggleOpenedState } from '../../actions/repo';
-import { Repo } from '../types';
 import styles from './styles.css';
 import Star from '../../public/star_github.svg';
 

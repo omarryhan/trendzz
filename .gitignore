@@ -2,6 +2,7 @@
 # Custom
 .vscode
 design
+*:Zone.Identifier
 
 # PWA
 out

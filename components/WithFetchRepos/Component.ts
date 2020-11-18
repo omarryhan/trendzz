@@ -1,6 +1,5 @@
 import React from 'react';
 import { createQueryURL, times } from '../../configs';
-import { Repo } from '../types';
 
 const fetchRepos = async (
   time = times.daily.url, language: string | undefined, setIsFetching: (state: boolean) => void,

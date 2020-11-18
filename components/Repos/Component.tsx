@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
 import styles from './styles.css';
-import { Repo as RepoInterface } from '../types';
 import Repo from '../Repo';
 import MarkAllAsReadButton from '../MarkAllAsReadButton';
 import { markRepoAsOpened } from '../../actions/repo';
 
 interface Props {
-  repos: RepoInterface[];
+  repos: Repo[];
   isFetchingRepos: boolean;
   isBigHeight?: boolean;
   EmptyPlaceholder: React.FC;
