@@ -5,6 +5,7 @@ import {
   languages,
   repoLastOpenedExpiryTime,
 } from '../../configs';
+import { getShuffleModeFromStorage } from '../ShuffleSettingsSection/Component';
 import { getRepo, markRepoAsOpened } from '../../actions/repo';
 
 const fetchRepos = async (
@@ -24,19 +25,25 @@ const fetchRepos = async (
     console.error(e);
   }
 
-  const retVal: Repo[] = [];
+  const languageOrder = getShuffleModeFromStorage();
 
-  for (let i = 0; i < 100; i += 1) {
-    allResults.forEach((results) => {
-      const repo = results[i];
-      if (repo) {
-        retVal.push(repo);
-      }
-    });
+  if (languageOrder === 'shuffle') {
+    const retVal: Repo[] = [];
+    for (let i = 0; i < 100; i += 1) {
+      allResults.forEach((results) => {
+        const repo = results[i];
+        if (repo) {
+          retVal.push(repo);
+        }
+      });
+    }
+    return retVal;
+  } else if (languageOrder === 'sequential') {
+    return allResults.flat();
+  } else {
+    // should never be thrown
+    throw new Error('Invalid language order');
   }
-
-  // return allResults.flat();
-  return retVal;
 };
 
 interface Props {
