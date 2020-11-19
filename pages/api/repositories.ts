@@ -10,6 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   // that scrapes the data. Instead it calls github-trending's server
   // that hosts the API, which is currently down. I'll use another API for
   // now and leave this here should I need to replace it.
+  res.setHeader('Cache-Control', 's-maxage=86400');
   const response = await fetchRepositories({ language, since: 'daily' });
   console.log(response);
   res.json(response);
