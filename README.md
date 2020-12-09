@@ -2,7 +2,6 @@
   <img src="https://github.com/omarryhan/trendzz/raw/master/public/logo_circular/512w/logo_circular.png" alt="Logo" title="Trendzz" height="250" width="250"/>
   <p align="center">
     <a href="https://github.com/omarryhan/trendzz/actions?query=workflow%3ACI"><img alt="Build Status" src="https://github.com/omarryhan/trendzz/workflows/CI/badge.svg"></a>
-    <a href="https://app.netlify.com/sites/trendzz/deploys"><img alt="Build status" src="https://api.netlify.com/api/v1/badges/e36c5fe0-37d4-4190-903a-df004d01cef2/deploy-status"></a>
     <a href="https://github.com/omarryhan/trendzz"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
   </p>
 </p>
