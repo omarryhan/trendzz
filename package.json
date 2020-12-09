@@ -30,7 +30,7 @@
     "test:cov": "jest --coverage"
   },
   "dependencies": {
-    "@huchenme/github-trending": "git+ssh://git@github.com/omarryhan/github-trending-api.git",
+    "@huchenme/github-trending": "git+https://git@github.com/omarryhan/github-trending-api.git",
     "@next/bundle-analyzer": "^9.3.5",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-source-maps": "^0.0.4-canary.1",
