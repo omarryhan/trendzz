@@ -11,7 +11,7 @@
   "scripts": {
     "upgrade-interactive": "npm-check --update",
     "dev": "next dev",
-    "dev:static": "npm run build && npm run start:static",
+    "dev:static": "npm run build && npm run export && npm run start:static",
     "build": "next build",
     "export": "next export",
     "build:analyze": "ANALYZE=true next build",
@@ -30,7 +30,7 @@
     "test:cov": "jest --coverage"
   },
   "dependencies": {
-    "@huchenme/github-trending": "git+https://git@github.com/omarryhan/github-trending-api.git#4145560b8126c703c4bf21899b9d1e4d50be4c71",
+    "@huchenme/github-trending": "^2.4.2",
     "@next/bundle-analyzer": "^9.3.5",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-source-maps": "^0.0.4-canary.1",
@@ -75,7 +75,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run build # && npm run lint:fix"
+      "pre-commit": "npm run lint && npm run build && npm run export # && npm run lint:fix"
     }
   }
 }
