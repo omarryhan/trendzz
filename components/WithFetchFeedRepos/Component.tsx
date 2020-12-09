@@ -1,7 +1,8 @@
 import React from 'react';
 import uniqWith from 'lodash.uniqwith';
+import { Repository } from '@huchenme/github-trending';
 import {
-  createQueryURL,
+  // createQueryURL,
   languages,
 } from '../../configs';
 import { getShuffleModeFromStorage } from '../ShuffleSettingsSection/Component';
@@ -10,15 +11,16 @@ import { getAppearAgainFromStorage } from '../OldReposSettingsSection/Component'
 
 const fetchRepos = async (
   feedLanguages: string[],
-): Promise<Repo[]> => {
-  let allResults = [] as Repo[][];
+): Promise<Repository[]> => {
+  let allResults = [] as Repository[][];
   try {
-    allResults = await Promise.all(feedLanguages.map(async (language): Promise<Repo[]> => {
-      const url = createQueryURL(languages[language].url, 'daily');
-      return await (await fetch(url)).json() as Repo[];
+    allResults = await Promise.all(feedLanguages.map(async (language): Promise<Repository[]> => {
+      // const url = createQueryURL(languages[language].url, 'daily');
+      // return await (await fetch(url)).json() as Repository[];
+
       // check the comment in pages/api/repositories
-      // const response = await fetch(`/api/repositories?language=${languages[language].url}`);
-      // return await response.json() as Repo[];
+      const response = await fetch(`/api/repositories?language=${languages[language].url}`);
+      return await response.json() as Repository[];
     }));
   } catch (e) {
     alert(e.message);
@@ -28,7 +30,7 @@ const fetchRepos = async (
   const languageOrder = getShuffleModeFromStorage();
 
   if (languageOrder === 'shuffle') {
-    const retVal: Repo[] = [];
+    const retVal: Repository[] = [];
     for (let i = 0; i < 100; i += 1) {
       allResults.forEach((results) => {
         const repo = results[i];
@@ -48,7 +50,7 @@ const fetchRepos = async (
 
 interface Props {
   children: React.FC<{
-    repos: Repo[];
+    repos: Repository[];
     isFetchingRepos: boolean;
   }>;
   hideOpened?: boolean;
@@ -69,10 +71,10 @@ const getInitialLanguages = (): string[] => {
   return feedLanguages.split(',');
 };
 
-const repoComparator = <R extends Repo >(a: R, b: R) => a.url === b.url;
+const repoComparator = <R extends Repository >(a: R, b: R) => a.url === b.url;
 
 const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
-  const [repos, setRepos] = React.useState<Repo[]>([]);
+  const [repos, setRepos] = React.useState<Repository[]>([]);
   const [isFetchingRepos, setIsFetchingRepos] = React.useState(true);
   const feedLanguages = getInitialLanguages();
 
@@ -81,7 +83,7 @@ const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
       setIsFetchingRepos(true);
       try {
         const fetchedRepos = await fetchRepos(feedLanguages);
-        const filteredRepos: Repo[] = [];
+        const filteredRepos: Repository[] = [];
 
         // You can't promise all with filter :((
         // Almost went crazy because it didn't even throw an error
@@ -111,9 +113,9 @@ const Component: React.FC<Props> = ({ children, hideOpened = false }) => {
         }));
 
         if (hideOpened) {
-          setRepos(uniqWith<Repo>(filteredRepos, repoComparator));
+          setRepos(uniqWith<Repository>(filteredRepos, repoComparator));
         } else {
-          setRepos(uniqWith<Repo>(fetchedRepos, repoComparator));
+          setRepos(uniqWith<Repository>(fetchedRepos, repoComparator));
         }
       } finally {
         setIsFetchingRepos(false);

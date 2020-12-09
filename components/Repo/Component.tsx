@@ -1,10 +1,11 @@
 import React from 'react';
+import { Repository } from '@huchenme/github-trending';
 import WithSlide from '../WithSlide';
 import { isRepoOpened, markRepoAsOpened, toggleOpenedState } from '../../actions/repo';
 import styles from './styles.css';
 import Star from '../../public/star_github.svg';
 
-const Component: React.FC<{repo: Repo, canMarkAsRead: boolean}> = (
+const Component: React.FC<{repo: Repository, canMarkAsRead: boolean}> = (
   { repo, canMarkAsRead },
 ) => {
   const [isRepoOpenedState, setIsRepoOpenedState] = React.useState(false);

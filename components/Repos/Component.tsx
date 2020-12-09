@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
+import { Repository } from '@huchenme/github-trending';
 import styles from './styles.css';
 import Repo from '../Repo';
 import MarkAllAsReadButton from '../MarkAllAsReadButton';
 import { markRepoAsOpened } from '../../actions/repo';
 
 interface Props {
-  repos: Repo[];
+  repos: Repository[];
   isFetchingRepos: boolean;
   isBigHeight?: boolean;
   EmptyPlaceholder: React.FC;

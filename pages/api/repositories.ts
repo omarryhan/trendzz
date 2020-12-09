@@ -1,6 +1,4 @@
-import {
-  fetchRepositories,
-} from '@huchenme/github-trending';
+import { fetchRepositories } from '@huchenme/github-trending/lib/scrape';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
@@ -12,7 +10,6 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   // now and leave this here should I need to replace it later.
   res.setHeader('Cache-Control', 's-maxage=86400');
   const response = await fetchRepositories({ language, since: 'daily' });
-  console.log(response);
   res.json(response);
   res.end();
 };

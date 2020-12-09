@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+  pull_request:
+  pull_request_review:
+  schedule:
+      - cron: '0 0 * * *' # Once per day at midnight
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: yarn
+    - name: Build
+      run: yarn build
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: yarn
+    - name: Lint
+      run: yarn lint

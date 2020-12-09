@@ -1,14 +1,15 @@
 import React from 'react';
+import { Repository } from '@huchenme/github-trending';
 import { createQueryURL, times } from '../../configs';
 
 const fetchRepos = async (
   time = times.daily.url, language: string | undefined, setIsFetching: (state: boolean) => void,
-): Promise<Repo[]> => {
+): Promise<Repository[]> => {
   const url = createQueryURL(language || undefined, time);
   setIsFetching(true);
-  let results = [] as Repo[];
+  let results = [] as Repository[];
   try {
-    results = await (await fetch(url)).json() as Repo[];
+    results = await (await fetch(url)).json() as Repository[];
   } catch (e) {
     alert(e.message);
     console.error(e);
@@ -22,7 +23,7 @@ interface Props {
   children: React.FC<{
     time: string;
     language: string | undefined;
-    repos: Repo[];
+    repos: Repository[];
     setLanguage: (newLanguage: string) => Promise<void>;
     setTime: (newTime: string) => Promise<void>;
     isFetchingRepos: boolean;
@@ -58,7 +59,7 @@ const setTimeAndLanguageLocalStorate = (time: string, language: string): void =>
 const Component: React.FC<Props> = ({ children }) => {
   const [time, setTime] = React.useState(defaults.time);
   const [language, setLanguage] = React.useState<string | undefined>(defaults.language);
-  const [repos, setRepos] = React.useState<Repo[]>([]);
+  const [repos, setRepos] = React.useState<Repository[]>([]);
   const [isFetchingRepos, setIsFetchingRepos] = React.useState(false);
 
   const setTimeAndFetchRepos = async (newTime: string): Promise<void> => {
