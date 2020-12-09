@@ -1278,9 +1278,9 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@huchenme/github-trending@git+https://github.com/omarryhan/github-trending-api.git":
+"@huchenme/github-trending@git+https://git@github.com/omarryhan/github-trending-api.git#4145560b8126c703c4bf21899b9d1e4d50be4c71":
   version "0.0.0-development"
-  resolved "git+https://github.com/omarryhan/github-trending-api.git#4145560b8126c703c4bf21899b9d1e4d50be4c71"
+  resolved "git+https://git@github.com/omarryhan/github-trending-api.git#4145560b8126c703c4bf21899b9d1e4d50be4c71"
   dependencies:
     "@babel/runtime-corejs3" "^7.9.2"
     axios "^0.19.2"
