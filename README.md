@@ -24,7 +24,7 @@ https://trendzz.netlify.app
 I think browsers should always show `100vh` regardless whether the user has started scrolling down or not.
 Firefox doesn't seem to have this issue. Chrome and Chromium based browsers do. Yay Firefox.
 
-2. Some browsers disallow access to indexed db in Incognito. I tried to make sure that all the indexed db ops are fail safe, so that your app app never fails if it can't mark a repo as read.
+2. Some browsers disallow access to indexed db in Incognito. I tried to make sure that all the indexed db ops fail gracefully, so that the app never errors if it can't mark a repo as read.
 
 ## Thanks
 
