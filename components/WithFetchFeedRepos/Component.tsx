@@ -2,7 +2,7 @@ import React from 'react';
 import uniqWith from 'lodash.uniqwith';
 import { Repository } from '@huchenme/github-trending';
 import {
-  createQueryURL,
+  // createQueryURL,
   languages,
 } from '../../configs';
 import { getShuffleModeFromStorage } from '../ShuffleSettingsSection/Component';
@@ -15,12 +15,12 @@ const fetchRepos = async (
   let allResults = [] as Repository[][];
   try {
     allResults = await Promise.all(feedLanguages.map(async (language): Promise<Repository[]> => {
-      const url = createQueryURL(languages[language].url, 'daily');
-      return await (await fetch(url)).json() as Repository[];
+      // const url = createQueryURL(languages[language].url, 'daily');
+      // return await (await fetch(url)).json() as Repository[];
 
       // check the comment in pages/api/repositories
-      // const response = await fetch(`/api/repositories?language=${languages[language].url}`);
-      // return await response.json() as Repository[];
+      const response = await fetch(`/api/repositories?language=${languages[language].url}`);
+      return await response.json() as Repository[];
     }));
   } catch (e) {
     alert(e.message);

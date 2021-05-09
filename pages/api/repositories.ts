@@ -1,6 +1,6 @@
 // commenting this out because it's causing a type error
 // import { fetchRepositories } from '@huchenme/github-trending/lib/scrape';
-import { fetchRepositories } from '@huchenme/github-trending';
+import { fetchRepositories } from '@huchenme/github-trending/lib/scrape';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
