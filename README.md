@@ -12,7 +12,7 @@ Github trending PWA focusing on usability.
 
 ## Live website
 
-https://trendzz.netlify.app
+https://trendzz.vercel.app/
 
 ## Known issues
 
