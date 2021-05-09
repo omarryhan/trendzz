@@ -1,5 +1,5 @@
 import React from 'react';
-import { Repository } from '@huchenme/github-trending';
+import { Repository } from 'github-trending-scrape';
 import WithSlide from '../WithSlide';
 import { isRepoOpened, markRepoAsOpened, toggleOpenedState } from '../../actions/repo';
 import styles from './styles.css';

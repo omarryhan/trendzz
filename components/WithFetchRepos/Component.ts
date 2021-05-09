@@ -1,5 +1,5 @@
 import React from 'react';
-import { Repository } from '@huchenme/github-trending';
+import { Repository } from 'github-trending-scrape';
 import { createQueryURL, times } from '../../configs';
 
 const fetchRepos = async (

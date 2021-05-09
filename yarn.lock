@@ -1286,20 +1286,6 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@huchenme/github-trending@git+https://github.com/omarryhan/github-trending-api.git":
-  version "0.0.0-development"
-  resolved "git+https://github.com/omarryhan/github-trending-api.git#4145560b8126c703c4bf21899b9d1e4d50be4c71"
-  dependencies:
-    "@babel/runtime-corejs3" "^7.9.2"
-    axios "^0.19.2"
-    cheerio "^1.0.0-rc.3"
-    cors "^2.8.5"
-    express "^4.17.1"
-    express-cache-controller "^1.1.0"
-    lodash "^4.17.15"
-    memory-cache "^0.2.0"
-    opencollective-postinstall "^2.0.2"
-
 "@next/bundle-analyzer@^9.3.5":
   version "9.5.5"
   resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-9.5.5.tgz#9cb5f67e8d3012ccfb87c10f20715fb7f918dd66"
@@ -4955,6 +4941,21 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
+
+github-trending-scrape@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/github-trending-scrape/-/github-trending-scrape-0.0.1.tgz#401579b8ae5d9b52f33c9172341900fcdb9aa51c"
+  integrity sha512-fgFfLkiDqIoUKfrsRkX6F/jNdX6vrrhLVwhZ311//UVBLFTRs1s5rhZIYuyTj6O+zd1FslTH73TkHT1i4GhbxQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.9.2"
+    axios "^0.19.2"
+    cheerio "^1.0.0-rc.3"
+    cors "^2.8.5"
+    express "^4.17.1"
+    express-cache-controller "^1.1.0"
+    lodash "^4.17.15"
+    memory-cache "^0.2.0"
+    opencollective-postinstall "^2.0.2"
 
 giturl@^1.0.0:
   version "1.0.1"

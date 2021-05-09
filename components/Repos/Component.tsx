@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
-import { Repository } from '@huchenme/github-trending';
+import { Repository } from 'github-trending-scrape';
 import styles from './styles.css';
 import Repo from '../Repo';
 import MarkAllAsReadButton from '../MarkAllAsReadButton';

@@ -1,6 +1,6 @@
 import React from 'react';
 import uniqWith from 'lodash.uniqwith';
-import { Repository } from '@huchenme/github-trending';
+import { Repository } from 'github-trending-scrape';
 import {
   // createQueryURL,
   languages,

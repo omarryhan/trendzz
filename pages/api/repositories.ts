@@ -1,4 +1,4 @@
-import { fetchRepositories } from '@huchenme/github-trending/lib/scrape';
+import { fetchRepositories } from 'github-trending-scrape/lib/scrape';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
