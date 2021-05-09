@@ -1,15 +1,18 @@
 import React from 'react';
 import { Repository } from 'github-trending-scrape';
-import { createQueryURL, times } from '../../configs';
+import {
+  // createQueryURL,
+  times,
+} from '../../configs';
 
 const fetchRepos = async (
   time = times.daily.url, language: string | undefined, setIsFetching: (state: boolean) => void,
 ): Promise<Repository[]> => {
-  const url = createQueryURL(language || undefined, time);
+  // const url = createQueryURL(language || undefined, time);
   setIsFetching(true);
   let results = [] as Repository[];
   try {
-    results = await (await fetch(url)).json() as Repository[];
+    results = await (await fetch(`/api/repositories?language=${language}&since=${time}`)).json() as Repository[];
   } catch (e) {
     alert(e.message);
     console.error(e);
