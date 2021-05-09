@@ -38,5 +38,6 @@ module.exports = {
     'no-else-return': 'off',
     'no-alert': 'off',
     'jsx-a11y/anchor-is-valid': 'off', // Next.JS specific.
+    'import/no-anonymous-default-export': 'off',
   },
 };

@@ -4,7 +4,7 @@ import styles from './styles.css';
 import Logo from '../../public/logo_circular/SVG/logo_circular.svg';
 import Settings from '../../public/settings.svg';
 
-const Component: React.FC<{hideSettings?: boolean}> = ({ hideSettings = false }) => (
+const Component: React.FC<{ hideSettings?: boolean }> = ({ hideSettings = false }) => (
   <header className={styles.header}>
     <div className={styles.logoAndTitleWrapper}>
       <button

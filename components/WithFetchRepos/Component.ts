@@ -30,7 +30,7 @@ interface Props {
   }>;
 }
 
-const defaults: { time: string; language: string} = {
+const defaults: { time: string; language: string } = {
   time: times.daily.url,
   language: '',
 };

@@ -5,7 +5,7 @@ import { isRepoOpened, markRepoAsOpened, toggleOpenedState } from '../../actions
 import styles from './styles.css';
 import Star from '../../public/star_github.svg';
 
-const Component: React.FC<{repo: Repository, canMarkAsRead: boolean}> = (
+const Component: React.FC<{ repo: Repository, canMarkAsRead: boolean }> = (
   { repo, canMarkAsRead },
 ) => {
   const [isRepoOpenedState, setIsRepoOpenedState] = React.useState(false);
