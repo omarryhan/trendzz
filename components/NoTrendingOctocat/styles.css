@@ -1,0 +1,25 @@
+.svgContainer {
+  text-align: center;
+}
+
+.svgContainer svg {
+  margin-top: -300px;
+  margin-left: -14px;
+  width: 100%;
+}
+
+.flyUp {
+  animation: flyUpKeyFrame 3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flyUpKeyFrame {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-1000px);
+  }
+}

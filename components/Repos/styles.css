@@ -19,7 +19,7 @@
 }
 
 .loadingIndicatorWrapper div {
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,8 +30,4 @@
   margin: 0 0;
   font-weight: normal;
   font-size: 30px;
-}
-
-.loadingIndicatorWrapper div svg {
-  width: 100%;
 }
