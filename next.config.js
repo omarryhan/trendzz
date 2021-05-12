@@ -12,6 +12,7 @@ const withSourceMaps = require('@zeit/next-source-maps')();
 module.exports = withCSS(withPWA(withBundleAnalyzer(withSourceMaps({
   poweredByHeader: false,
   cssModules: true,
+  target: 'serverless',
   cssLoaderOptions: {
     // typings-for-css-modules-loader config here
     namedExport: true,
