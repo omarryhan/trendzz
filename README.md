@@ -8,7 +8,7 @@
 
 # Trendzz
 
-Github trending PWA focusing on usability.
+Github trending PWA
 
 ## Live website
 
@@ -18,7 +18,10 @@ https://trendzz.vercel.app/
 
 1. If you're having trouble seeing the bottom select row, you can either:
 
-- Add the app to your homescreen and open it again, this will correctly show the full height (`100vh`).
+- Add the app to your homescreen and open it again. This will correctly show the full height (`100vh`).
+
+Or:
+
 - Try pulling the header upwards.
 
 I think browsers should always show `100vh` regardless whether the user has started scrolling down or not.

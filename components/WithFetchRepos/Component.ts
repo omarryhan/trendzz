@@ -12,7 +12,7 @@ const fetchRepos = async (
   setIsFetching(true);
   let results = [] as Repository[];
   try {
-    results = await (await fetch(`/api/repositories?language=${language}&since=${time}`)).json() as Repository[];
+    results = await (await fetch(`/api/repositories?language=${language || ''}&since=${time}`)).json() as Repository[];
   } catch (e) {
     alert(e.message);
     console.error(e);
