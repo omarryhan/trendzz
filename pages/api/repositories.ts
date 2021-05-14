@@ -7,5 +7,4 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   res.setHeader('Cache-Control', 's-maxage=86400');
   const response = await fetchRepositories({ language, since });
   res.json(response);
-  res.end();
 };
