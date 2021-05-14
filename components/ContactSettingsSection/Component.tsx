@@ -19,12 +19,7 @@ const Component: React.FC = () => (
       {' '}
       or
       {' '}
-      send me a tweet (or a DM)
-      {' '}
-      <a href="https://twitter.com/omarryhan">
-        @omarryhan
-      </a>
-      .
+      send me an email @ omarryhan (at) gmail
     </p>
   </section>
 );
