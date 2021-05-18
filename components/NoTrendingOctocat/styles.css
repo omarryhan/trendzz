@@ -14,6 +14,7 @@
   animation: flyUpKeyFrame 3s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
+  z-index: 10;
 }
 
 @keyframes flyUpKeyFrame {
