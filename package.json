@@ -46,7 +46,7 @@
     "react-ga": "^3.1.2",
     "react-loading": "2.0.3",
     "react-use-gesture": "^7.0.15",
-    "simple-peer": "^9.11.0"
+    "sdp-transform": "^2.14.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.4.0",
@@ -54,7 +54,7 @@
     "@types/node": "^15.0.2",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
-    "@types/simple-peer": "^9.11.1",
+    "@types/sdp-transform": "^2.4.5",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
     "eslint": "^7.4.0",

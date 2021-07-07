@@ -1,40 +1,54 @@
+/* eslint-disable import/order */
 import React from 'react';
-// import Peer from 'simple-peer';
-// import Peerjs from 'peerjs';
+import * as sdpTransform from 'sdp-transform';
 import styles from './styles.css';
 
 const Component: React.FC = () => {
-  // const [initiatorPeer, setInitiatorPeer] = React.useState<Peer.Instance>();
-  // const [passivePeer, setPassivePeer] = React.useState<Peer.Instance>();
-  // React.useEffect(() => {
-  //   const newInitiatorPeer = new Peer({ initiator: true, channelName: 'trendzz-sync' });
-  //   setInitiatorPeer(newInitiatorPeer);
-  //   const newPassivePeer = new Peer();
-  //   setPassivePeer(newPassivePeer);
-  // }, []);
+  const [peerJsConnection, setPeerJsConnection] = React.useState<any>();
   const [peerConnection, setPeerConnection] = React.useState<RTCPeerConnection>();
   const [remoteOffer, setRemoteOffer] = React.useState<RTCSessionDescriptionInit>();
-  const [localSdp, setLocalSdp] = React.useState<string>();
+  const [dataChannel, setDataChannel] = React.useState<RTCDataChannel>();
+  const [iceSdp, setIceSdp] = React.useState<string>();
 
   React.useEffect(() => {
     const fn = async () => {
-      const newConn = new RTCPeerConnection({ iceServers: [] });
+      // create PeerJS signalling client
+      const PeerJs = (await import('peerjs')).default;
+      const newPeerJsConnection = new PeerJs();
+      setPeerJsConnection(newPeerJsConnection);
+
+      // create RTC conn
+      const newConn = new RTCPeerConnection(
+        {
+          iceServers: [
+          // { urls: 'stun:stun.l.google.com:19302' },
+          ],
+        },
+      );
+
       newConn.onicecandidate = (evt) => {
         if (evt.candidate) {
-          console.log('LOCAL SDP');
           console.log(evt.candidate.candidate);
-          const sdp = evt.candidate.candidate;
-          setLocalSdp(sdp);
+          // for some very peculiar reason
+          // if setting this candidate to state is not done
+          // we lose the .local candidadte
+          // even if we do evt.candidate.candidate without
+          // setting it to state.
+          setIceSdp(evt.candidate.candidate);
         }
       };
+      const newDataChannel = await newConn.createDataChannel('trendzz');
+      setDataChannel(newDataChannel);
       const offer = await newConn.createOffer();
       await newConn.setLocalDescription(offer);
-      // await newConn.createDataChannel('first', { reliable: false });
       setPeerConnection(newConn);
     };
     fn();
   }, []);
-  // let l;
+  const parsedSdp = peerConnection?.localDescription?.sdp && sdpTransform.parse(
+    peerConnection?.localDescription?.sdp,
+  ) as any;
+  parsedSdp && console.log(parsedSdp.media[0]);
   return (
     <section className={styles.sectionWrapper}>
       <h2 className={styles.settingsTitle}>
@@ -49,11 +63,7 @@ const Component: React.FC = () => {
         <br />
         <br />
         <br />
-        {peerConnection?.localDescription?.type}
-        <br />
-        <br />
-        <br />
-        {localSdp}
+        {}
       </p>
     </section>
   );
