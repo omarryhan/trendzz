@@ -19,7 +19,11 @@ const Component: React.FC = () => (
       {' '}
       or
       {' '}
-      send me an email @ omarryhan (at) gmail
+      send me an email @
+      {' '}
+      <a href="mailto:omarryhan@gmail.com">
+        omarryhan@gmail.com
+      </a>
     </p>
   </section>
 );

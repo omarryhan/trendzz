@@ -7,6 +7,7 @@ import BottomNav from '../components/BottomNav';
 import SettingsBody from '../components/SettingsBody';
 import ShuffleSettingsSection from '../components/ShuffleSettingsSection';
 import OldReposSettingsSection from '../components/OldReposSettingsSection';
+import SyncSettingsSection from '../components/SyncSettingsSection';
 import ContactSettingsSection from '../components/ContactSettingsSection';
 
 const Page: NextPage = () => (
@@ -20,6 +21,7 @@ const Page: NextPage = () => (
       <FeedLanguagesSettingsSection />
       <ShuffleSettingsSection />
       <OldReposSettingsSection />
+      <SyncSettingsSection />
       <ContactSettingsSection />
     </SettingsBody>
     <BottomNav />
