@@ -61,9 +61,14 @@ export const isRepoOpened = async (
 
 // Backup
 export const getAllRepos = async (): Promise<{ [key: string]: RepoStorage }[]> => {
-  const allKeys = await keys() as string[];
-  const allRepos = await getMany(allKeys);
-  return allKeys.map((key, i) => ({ [key]: allRepos[i] }));
+  try {
+    const allKeys = await keys() as string[];
+    const allRepos = await getMany(allKeys);
+    return allKeys.map((key, i) => ({ [key]: allRepos[i] }));
+  } catch (e) {
+    console.error(e);
+    return [];
+  }
 };
 
 // Restore

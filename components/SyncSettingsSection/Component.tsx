@@ -27,13 +27,19 @@ const Component: React.FC = () => {
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        <a
-          className={`${styles.export} ${styles.anchorNoStyle}`}
-          href={exportDataString}
-          download="trendzz-backup.json"
-        >
-          Export
-        </a>
+        {
+          exportData.length ? (
+            <a
+              className={`${styles.export} ${styles.anchorNoStyle}`}
+              href={exportDataString}
+              download="trendzz-backup.json"
+            >
+              Export
+            </a>
+          ) : (
+            <span />
+          )
+        }
 
         <form>
           <label htmlFor="fileUpload" className={`${styles.export}`}>
