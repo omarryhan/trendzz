@@ -25,7 +25,7 @@ const Component: React.FC = () => {
       <p className={styles.settingsDescription}>
         Backup and restore your reading history (stored in IndexedDB)
         <br />
-        Importing won&apos;t remove existing data. It will only add overwrite duplicates.
+        Importing won&apos;t remove existing data. It will only add and overwrite duplicates.
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
