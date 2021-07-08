@@ -23,7 +23,9 @@ const Component: React.FC = () => {
         Backup and restore
       </h2>
       <p className={styles.settingsDescription}>
-        Backup and restore your reading history (stored in local storage)
+        Backup and restore your reading history (stored in IndexedDB)
+        <br />
+        Importing won&apos;t remove existing data. It will only add overwrite duplicates.
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
