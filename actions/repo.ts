@@ -1,4 +1,6 @@
-import { set, get } from 'idb-keyval';
+import {
+  set, get, keys, getMany, setMany,
+} from 'idb-keyval';
 
 interface RepoStorage {
   isOpened: boolean;
@@ -56,3 +58,17 @@ export const getRepo = async (
 export const isRepoOpened = async (
   repoUrl: string,
 ): Promise<boolean> => (await getRepo(repoUrl)).isOpened;
+
+// Backup
+export const getAllRepos = async (): Promise<{ [key: string]: RepoStorage }[]> => {
+  const allKeys = await keys() as string[];
+  const allRepos = await getMany(allKeys);
+  return allKeys.map((key, i) => ({ [key]: allRepos[i] }));
+};
+
+// Restore
+export const setAllRepos = async (repos: { [key: string]: RepoStorage }[]): Promise<void> => {
+  const properFormat = repos.map((repo) => ([Object.keys(repo)[0], Object.values(repo)[0]]));
+  // @ts-ignore
+  await setMany(properFormat);
+};

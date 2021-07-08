@@ -1,70 +1,69 @@
 /* eslint-disable import/order */
 import React from 'react';
-import * as sdpTransform from 'sdp-transform';
 import styles from './styles.css';
+import { getAllRepos, setAllRepos } from '../../actions/repo';
 
 const Component: React.FC = () => {
-  const [peerJsConnection, setPeerJsConnection] = React.useState<any>();
-  const [peerConnection, setPeerConnection] = React.useState<RTCPeerConnection>();
-  const [remoteOffer, setRemoteOffer] = React.useState<RTCSessionDescriptionInit>();
-  const [dataChannel, setDataChannel] = React.useState<RTCDataChannel>();
-  const [iceSdp, setIceSdp] = React.useState<string>();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [exportData, setExportData] = React.useState<any>([]);
 
   React.useEffect(() => {
     const fn = async () => {
-      // create PeerJS signalling client
-      const PeerJs = (await import('peerjs')).default;
-      const newPeerJsConnection = new PeerJs();
-      setPeerJsConnection(newPeerJsConnection);
-
-      // create RTC conn
-      const newConn = new RTCPeerConnection(
-        {
-          iceServers: [
-          // { urls: 'stun:stun.l.google.com:19302' },
-          ],
-        },
-      );
-
-      newConn.onicecandidate = (evt) => {
-        if (evt.candidate) {
-          console.log(evt.candidate.candidate);
-          // for some very peculiar reason
-          // if setting this candidate to state is not done
-          // we lose the .local candidadte
-          // even if we do evt.candidate.candidate without
-          // setting it to state.
-          setIceSdp(evt.candidate.candidate);
-        }
-      };
-      const newDataChannel = await newConn.createDataChannel('trendzz');
-      setDataChannel(newDataChannel);
-      const offer = await newConn.createOffer();
-      await newConn.setLocalDescription(offer);
-      setPeerConnection(newConn);
+      const allRepos = await getAllRepos();
+      setExportData(allRepos);
     };
     fn();
   }, []);
-  const parsedSdp = peerConnection?.localDescription?.sdp && sdpTransform.parse(
-    peerConnection?.localDescription?.sdp,
-  ) as any;
-  parsedSdp && console.log(parsedSdp.media[0]);
+
+  const exportDataString = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(exportData))}`;
+
   return (
     <section className={styles.sectionWrapper}>
       <h2 className={styles.settingsTitle}>
-        Sync history
+        Backup and restore
       </h2>
       <p className={styles.settingsDescription}>
-        Testing sth. If you see this section, please ignore it.
+        Backup and restore your reading history (stored in local storage)
       </p>
 
-      <p>
-        {peerConnection?.localDescription?.sdp}
-        <br />
-        <br />
-        <br />
-        {}
-      </p>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <a
+          className={`${styles.export} ${styles.anchorNoStyle}`}
+          href={exportDataString}
+          download="trendzz-backup.json"
+        >
+          Export
+        </a>
+
+        <form>
+          <label htmlFor="fileUpload" className={`${styles.export}`}>
+            Import
+            <input
+              id="fileUpload"
+              className={styles.fileInput}
+              type="file"
+              name="fileUpload"
+              onChange={(e) => {
+                const { files } = e.target;
+                if (!files || files === null || files.length <= 0) {
+                  return;
+                }
+                const fileReader = new FileReader();
+                fileReader.readAsText((files as FileList)[0], 'UTF-8');
+                fileReader.onload = async (evt) => {
+                  const storage = JSON.parse(decodeURIComponent(evt.target?.result as string));
+                  await setAllRepos(storage);
+                  alert('Done!');
+                };
+                fileReader.onerror = (evt) => {
+                  console.error(evt.target?.error);
+                  alert('Oops something went wrong. Please report this problem.');
+                };
+              }}
+            />
+          </label>
+        </form>
+      </div>
     </section>
   );
 };
