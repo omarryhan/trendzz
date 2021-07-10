@@ -59,9 +59,14 @@ const Component: React.FC = () => {
                 const fileReader = new FileReader();
                 fileReader.readAsText((files as FileList)[0], 'UTF-8');
                 fileReader.onload = async (evt) => {
-                  const storage = JSON.parse(decodeURIComponent(evt.target?.result as string));
-                  await setAllRepos(storage);
-                  alert('Done!');
+                  try {
+                    const storage = JSON.parse(decodeURIComponent(evt.target?.result as string));
+                    await setAllRepos(storage);
+                    alert('Done!');
+                  } catch (e) {
+                    alert('Invalid backup file');
+                    console.error(e);
+                  }
                 };
                 fileReader.onerror = (evt) => {
                   console.error(evt.target?.error);
